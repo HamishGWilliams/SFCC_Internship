@@ -1,0 +1,146 @@
+---
+title: "SFCC_Internship_Analyses"
+author: "Hamish Williams"
+date: "2024-07-04"
+output: word_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r load_packages}
+# Load necessary library
+library(ggplot2)
+
+# Define a plotting function
+plot_function <- function(subset) {
+  p <- ggplot(subset, aes(x = Value)) +
+    geom_histogram(binwidth = 0.5, fill = "lightblue", color = "black") +
+    ggtitle(paste("Histogram of Group", unique(subset$Group))) +
+    xlab("Value") +
+    theme_minimal()
+  print(p)
+}
+```
+
+
+# Import Data
+
+```{r}
+# Import Data
+data <- read.csv("../data/Fishery_Management_Plan_Actions_Working_Sheet.csv", header = T)
+
+# Change data type of relevant variables
+str(data)
+data$Proposed.Management.Action <- as.factor(data$Proposed.Management.Action)
+data$Scale <- as.factor(data$Scale)
+data$Proposed.Management.Action <- as.factor(data$Proposed.Management.Action)
+data$Maintainance.Required <- as.factor(data$Maintainance.Required)
+data$Funding.Available <- as.factor(data$Funding.Available)
+data$Funding_Status_TRUE <- as.factor(data$Funding_Status_TRUE)
+data$Maintainance.Required <- as.factor(data$Maintainance.Required)
+data$Costing.Certainty <- as.factor(data$Costing.Certainty)
+
+# Subset to very confident funding shortfall data
+data_subset <- data[data$Costing.Certainty == "Very Confident",]
+write.csv(data_subset, file = "./results/SFCC_VC_Subset.csv")
+
+# subset data to relevant scales for investigation: 1-3
+data_scale_1 <- data_subset[data_subset$Scale == "1",]
+str(data_scale_1)
+data_scale_2 <- data_subset[data_subset$Scale == "2",]
+str(data_scale_2)
+data_scale_3 <- data_subset[data_subset$Scale == "3",]
+str(data_scale_3)
+data_scale_4 <- data_subset[data_subset$Scale == "4",]
+str(data_scale_4)
+data_scale_5 <- data_subset[data_subset$Scale == "5",]
+str(data_scale_5)
+
+# Boxplot of filtered costings data ~ actions
+plot(subset_data$Proposed.Management.Action, subset_data$Filtered_Costings_Data)
+
+ggplot(data_subset, aes(x = Proposed.Management.Action, y = Filtered_Costings_Data, fill = Proposed.Management.Action)) +
+         geom_boxplot() + 
+         facet_wrap(~Scale, scales = "free") + 
+  labs(title = "Average Cost by Proposed Management Action for all Scales",
+       x = "Proposed Management Action",
+       y = "Average Cost") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_discrete(name = "Action")
+
+
+# Investigating the distributions of each scale for their costs per action group:
+by(data_scale_1$Filtered_Costings_Data, data_scale_1$Proposed.Management.Action, mean)
+by(data_scale_2$Filtered_Costings_Data, data_scale_2$Proposed.Management.Action, mean)
+by(data_scale_3$Filtered_Costings_Data, data_scale_3$Proposed.Management.Action, mean)
+by(data_scale_4$Filtered_Costings_Data, data_scale_4$Proposed.Management.Action, mean)
+by(data_scale_5$Filtered_Costings_Data, data_scale_5$Proposed.Management.Action, mean)
+
+# Making new dataset for the results:
+Actions <- unique(data$Proposed.Management.Action)
+
+
+```
+```{r}
+# Function to calculate means for a given scale
+calculate_means <- function(data, scale) {
+  data %>%
+    group_by(Proposed.Management.Action) %>%
+    summarize(average_cost = mean(Filtered_Costings_Data, na.rm = TRUE)) %>%
+    mutate(scale = scale)
+}
+
+# Calculate means for each scale
+results_scale_1 <- calculate_means(data_scale_1, "Scale 1")
+results_scale_2 <- calculate_means(data_scale_2, "Scale 2")
+results_scale_3 <- calculate_means(data_scale_3, "Scale 3")
+results_scale_4 <- calculate_means(data_scale_4, "Scale 4")
+results_scale_5 <- calculate_means(data_scale_5, "Scale 5")
+
+# Combine results into a single data frame
+results <- bind_rows(results_scale_1, results_scale_2, results_scale_3, results_scale_4, results_scale_5)
+
+# Ensure all actions (A:T) are represented for each scale
+all_actions <- expand.grid(
+  scale = unique(results$scale),
+  Proposed.Management.Action = factor(LETTERS[1:20])
+)
+getwd()
+# Merge to ensure all actions are present, filling with NA where no data is available
+results_full <- merge(all_actions, results, by = c("scale", "Proposed.Management.Action"), all.x = TRUE)
+write.csv(results_full, file = "./results/average_spending_results.csv")
+
+# Display the final results data frame
+print(results_full)
+
+barplot(results_scale_1$average_cost~results_scale_1$Proposed.Management.Action,
+        xlab = "Action", ylab = "Cost (£)", main = "Average cost of action (scale 1)")
+
+ggplot(results_full, aes(x = Proposed.Management.Action, y = average_cost, fill = Proposed.Management.Action)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Average Cost by Proposed Management Action for all Scales",
+       x = "Proposed Management Action",
+       y = "Average Cost") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 0)) +
+  scale_fill_discrete(name = "Action") + 
+  facet_wrap(~scale, scales = "free_y", nrow = 5)
+
+# Boxplot of filtered costings data ~ actions
+ggplot(data_subset, aes(x = Proposed.Management.Action, y = Filtered_Costings_Data, fill = Proposed.Management.Action)) +
+         geom_boxplot() + 
+  labs(title = "Costs by Proposed Management Action for all Scales",
+       x = "Proposed Management Action",
+       y = "Cost (£)") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 0)) +
+  scale_fill_discrete(name = "Action") + 
+  facet_wrap(~Scale, scales = "free_y", nrow = 5) 
+```
+
+
