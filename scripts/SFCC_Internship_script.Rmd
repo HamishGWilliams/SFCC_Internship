@@ -7,29 +7,133 @@ editor_options:
   chunk_output_type: console
 ---
 
+# Working Notes Document - Week 2 SFCC Internship
+
+In this document I will go through chronologically the tasks completed and discuss the results of the work completed to date. This markdown specifically is to serve as a reproducible and good example of how a markdown document can be made to inform others on the work completed with accessible coding notations, and in the instance of this internship and the goals set out at the start of the internship, to generate a reproducible document which could be used to further assess data in the future.
+
+There will be several parts to this markdown. I will include spaces for the necessary packages and custom functions used to generate the results, as well as directing the user to the appropriate spaces where the code for the shiny apps produced are stored (note: I will include the coding for the apps in here, but will likely have to comment these coding sections to render them nonfunctional, otherwise the generation of this file will not be possible). I will also give some notes on my thoughts and ideas from the interpretations of the results, and how these could be utilized by the SFCC and FMS in the future to better collate and analyse their costings/shortfalls for the fisheries boards/trusts, whilst considering the issues and costs of altering the data gathering processes.
+
+## GitHub
+
+All of the work completed here is accesible from the GitHub page which I have created to work on the data given for the internship: (<https://github.com/HamishGWilliams/SFCC_Internship.git>). For the sake of transparency and accessibility to the GitHub, I have made this public currently so that users may access the github and view the data, results and apps.
+
+## Shiny Apps
+
+Speaking of apps, there are currently 2 live, which can be accessed from here: The first is the initial shiny app made which allows an interactive session to play around with a boxplot figure representing the funding shortfalls variable from the raw data (<https://hamish-williams.shinyapps.io/SFCC_Internship_Interactable_App_1/>), the second app is more refined and has had serveral to a dozen processes completed to generate the necessary results to form the plots; This second shiny app provides and interactble session where the user and select between the differenct actions, scales and set a costings threshold on a sliding scale to show the boxplots of the costings of the various actions across all districts (<https://hamish-williams.shinyapps.io/SFCC_Internship_Interactable_App_2/>).
+
+More information on how these were created and the modifications to the data completed to generate the results for these apps will be shown in a later part of this document
+
+# Setup: loading packages and writing custom functions
+
+The following are the neccessary packages required to complete the analyses proceeding, if you do not have these packages currently downloaded, then use the commented example to download the package(s) required on your device:
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r load_packages}
-# Load necessary library
-library(ggplot2)
+# Example of package installation
+  # install.packages("ggplot2")
 
-# Define a plotting function
-plot_function <- function(subset) {
-  p <- ggplot(subset, aes(x = Value)) +
-    geom_histogram(binwidth = 0.5, fill = "lightblue", color = "black") +
-    ggtitle(paste("Histogram of Group", unique(subset$Group))) +
-    xlab("Value") +
-    theme_minimal()
-  print(p)
-}
+# Load the packages
+library(dplyr)
+library(ggplot2)
+library(shiny)
+library(here)
+library(rsconnect)
 ```
 
+```{r custom_functions}
+# Function to calculate means for a given scale
+calculate_means <- function(data, scale) {
+  data %>%
+    group_by(Proposed.Management.Action) %>%
+    summarize(average_cost = mean(Filtered_Costings_Data, na.rm = TRUE)) %>%
+    mutate(scale = scale)
+}
 
-# Import Data
+```
 
-```{r}
+# Excel work
+
+A key issue exists with the raw excel data, which is that where and what the funding shortfall is based on is ambiguous. At times it seems to reflect the captial costings, the in-kind contributions, the annual costs, or even all 3 combined, whereas at othertimes it exists externally to the costings, and is what I would call a "True" shortfall; Which is to say that the shortfall given is not tied directly to the costings variables.
+
+To compensate for this, an idea was proposed and reviewed by Sean, which is to devise a method to determine the likelihood that the funding shortfall is representative of the costings or not, and based on this combine all of the costings and shortfalls together to make a representative value for the total cost of the action.
+
+The overall objective was to create a new data variable which instead of representing the funding shortfall, would represent a best estimate costs of the action of that row of data. Using this true cost, you could then subtract the funding shortfall from costings of this
+
+There was a substantial amount of work completed not on this document, but on the excel spreadsheet (copy) of the data. I will take you through the steps completed to the excel data
+
+## Key Considerations
+
+From an email discussion with Sean, the following points were considered, quote:
+
+1.  If its 0 I think they will not need funding -- there is another "Funding_Status" column, where this is listed as "unfunded" and the shortfall is 0 then I would interpret that as the action has not been costed for whatever reason. If the funding status is "funded" or "partially funded" and the shortfall is 0, I would interpret that as not needing extra cash.
+
+2.  Yes, for those type of actions you have mentioned I think it would be appropriate to combine the capital/in-kind and annual costs to replace the 0 value in the "Funding Shortfall" column, as I know that is how some of the trusts calculated the shortfall. If a new field is created combining the shortfall and other costs then we may risk double-counting.
+
+From this I have made the following assumptions:
+
+-   If the funding shortfall is unfunded AND = 0, then don't include the shortfall in the calculation as it has not been costed for
+
+-   If the funding shortfall is unfunded BUT \> 0, then include this in the calculations
+
+-   If the shortfall is funded OR \> 0, then the shortfall could be included in the calculation
+
+-   IF the funding shortfall is not a reflection of either the capital, in-kind or annual costs (i.e., shortfall = cost), then the shortfall should be included in the calculation
+
+-   IF the funding shortfall is unfunded OR = 0, AND IS A reflection of any of the costings, then do not include the shortfall in the calculations
+
+## Steps taken to generate new variable
+
+The following steps were then followed to complete this set of criteria:
+
+1.  Make a new sheet with a copy of all the data
+
+2.  remove redundant variables not used in data, making sure to include the ID column in case there is need for one of the removed columns in the future
+
+3.  New Column: "Funding_Status_TRUE" - identifies whether the action has funding or not.
+
+-   ***=IF(OR(\$M2="Partially funded", \$M2="Funding secured"), "Funded", "Unfunded")***
+-   where M column = "Funding Available
+-   Key aim is to help discern if the funding shortfall is based on the costings variables or not, and was an advisement of Sean when asking for considerations for this objective
+
+4.  New column: 'Shortfall_Capital' - identifies if shortfall reflects capital costings
+
+-   ***=IF(AND(Q2\>0,Q2=I2),"Yes","No")***
+-   Where Q = shortfall and I = capital costs
+
+5.  New columns: "Shortfall_In-Kind" & "Shortfall_Annual" - same as before, but for the other costings
+
+-   ***=IF(AND(Q2\>0,Q2=J2),"Yes","No")*** for the in-kind
+-   ***=IF(AND(Q2\>0,Q2=L2),"Yes","No")*** for the annual
+
+6.  New column: "Condition_total_costings" - uses the previously generated criteria to determine how if it calculates the costs including the shortfall or not:
+
+-   ***=IF(AND(OR(R2="Funded",Q2\>0),S2="No",T2="No",U2="No"),SUM(I2,J2,L2,Q2),"")***
+-   IF the criteria in the row shows that the action is funded OR has a shortfall \> 0, AND the shortfall does NOT reflect any of the costings, then it will sum the values of all the costings and the shortfall. IF NOT, then it will leave a blank cell
+-   For brevities sake leaving a blank cell could be replaced with simply just calculating the costings together, but I did not do that before as I was getting confused with the excel coding. I instead made the combined costings in a new column
+
+7.  New column: "Combined_Costings" - combines all the costing together
+
+8.  New column: "Chossing the costing variable" - selects which calculation to take show
+
+-   \*\*\*=IF(V2="",W2,V2)\*\*\* IF the Condition variable ="", then select the combined costings, otherwise use the conditioned variable.
+-   Again, would not need this if I had tidied up the coding more, but its not much more space needed to complete the step, and separating these steps also means that Its easier to make changes to individual steps at a time.
+
+9.  New column: "Filtered_Costings_Data" - removes any 0's and replaces them with "" (NAs) as to not have these values skew the costings averages towards lower estimates.
+
+-   \*\*\*=IF(X2=0,"",X2)\*\*\* simply takes the value, IF = 0, then replace with""
+
+I then saved this new sheet as "Fishery_Management_Plan_Actions_Working_Sheet.csv", which is then used in the analyses completed later.
+
+This is not a perfect strategy, however I feel like it does a much better job to try and represent the actual costs of actions, but just the shortfalls. Using this new variable, we can then take the costings or the funding shortfalls and be able to calculate the aboslute and relative parts of the actions which are not accounted for with funding currently.
+
+# R Work
+
+The next step was to try and create some summary data of the costings, and to illustrate the distributions of the costings in a box plot
+
+```{r import_data}
 # Import Data
 data <- read.csv("../data/Fishery_Management_Plan_Actions_Working_Sheet.csv", header = T)
 
@@ -43,10 +147,13 @@ data$Funding.Available <- as.factor(data$Funding.Available)
 data$Funding_Status_TRUE <- as.factor(data$Funding_Status_TRUE)
 data$Maintainance.Required <- as.factor(data$Maintainance.Required)
 data$Costing.Certainty <- as.factor(data$Costing.Certainty)
+```
 
+```{r Alter_data}
 # Subset to very confident funding shortfall data
 data_subset <- data[data$Costing.Certainty == "Very Confident",]
-write.csv(data_subset, file = "./results/SFCC_VC_Subset.csv")
+# Save this subsetted dataframe to a new file for use.
+write.csv(data_subset, file = "../results/SFCC_VC_Subset.csv")
 
 # subset data to relevant scales for investigation: 1-3
 data_scale_1 <- data_subset[data_subset$Scale == "1",]
@@ -59,34 +166,37 @@ data_scale_4 <- data_subset[data_subset$Scale == "4",]
 str(data_scale_4)
 data_scale_5 <- data_subset[data_subset$Scale == "5",]
 str(data_scale_5)
+```
 
+```{r boxplots_1}
 # Boxplot of filtered costings data ~ actions
-plot(subset_data$Proposed.Management.Action, subset_data$Filtered_Costings_Data)
+plot(data_subset$Proposed.Management.Action, data_subset$Filtered_Costings_Data)
 
+# ggplot
 ggplot(data_subset, aes(x = Proposed.Management.Action, y = Filtered_Costings_Data, fill = Proposed.Management.Action)) +
          geom_boxplot() + 
          facet_wrap(~Scale, scales = "free") + 
   labs(title = "Average Cost by Proposed Management Action for all Scales",
        x = "Proposed Management Action",
        y = "Average Cost") +
-  theme_minimal() +
+  theme_classic() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   scale_fill_discrete(name = "Action")
-
-
-# Investigating the distributions of each scale for their costs per action group:
-by(data_scale_1$Filtered_Costings_Data, data_scale_1$Proposed.Management.Action, mean)
-by(data_scale_2$Filtered_Costings_Data, data_scale_2$Proposed.Management.Action, mean)
-by(data_scale_3$Filtered_Costings_Data, data_scale_3$Proposed.Management.Action, mean)
-by(data_scale_4$Filtered_Costings_Data, data_scale_4$Proposed.Management.Action, mean)
-by(data_scale_5$Filtered_Costings_Data, data_scale_5$Proposed.Management.Action, mean)
-
-# Making new dataset for the results:
-Actions <- unique(data$Proposed.Management.Action)
-
-
 ```
-```{r}
+
+```{r generating_new_average_dataset}
+# Investigating the means of each scale for their costs per action group:
+by(data_scale_1$Filtered_Costings_Data, data_scale_1$Proposed.Management.Action, summary)
+by(data_scale_2$Filtered_Costings_Data, data_scale_2$Proposed.Management.Action, summary)
+by(data_scale_3$Filtered_Costings_Data, data_scale_3$Proposed.Management.Action, summary)
+by(data_scale_4$Filtered_Costings_Data, data_scale_4$Proposed.Management.Action, summary)
+by(data_scale_5$Filtered_Costings_Data, data_scale_5$Proposed.Management.Action, summary)
+
+  # Initial observations tell us that not all scales have points on all management actions.
+  # We can also see instances where there are very few datapoints for some actions at given scales
+  # another observation is that the mean and median values of actions or scales are not equal, which shows bias towards either the lower or upper values no the distrbution curves (assuming normall ditributed). This is likely not a concern, but something to consider, that some of the actions may have some biasing datapoints which pull the data in a particular direction
+    # Another pointto add to the last, the distributions are limited to a mimimum value of 0 (which in this instance has not been included as detailed in the excel section).
+
 # Function to calculate means for a given scale
 calculate_means <- function(data, scale) {
   data %>%
@@ -110,14 +220,14 @@ all_actions <- expand.grid(
   scale = unique(results$scale),
   Proposed.Management.Action = factor(LETTERS[1:20])
 )
-getwd()
+
 # Merge to ensure all actions are present, filling with NA where no data is available
 results_full <- merge(all_actions, results, by = c("scale", "Proposed.Management.Action"), all.x = TRUE)
-write.csv(results_full, file = "./results/average_spending_results.csv")
+write.csv(results_full, file = "../results/average_spending_results.csv")
+```
 
-# Display the final results data frame
-print(results_full)
-
+```{r plot_data}
+# Barplot of average results
 barplot(results_scale_1$average_cost~results_scale_1$Proposed.Management.Action,
         xlab = "Action", ylab = "Cost (£)", main = "Average cost of action (scale 1)")
 
@@ -143,4 +253,12 @@ ggplot(data_subset, aes(x = Proposed.Management.Action, y = Filtered_Costings_Da
   facet_wrap(~Scale, scales = "free_y", nrow = 5) 
 ```
 
+These plots are useful and provide a good basis to complete future work for refinement and presentation, and are submitted as such in this document.
 
+Looking at the box plot, we can see, like mentioned in the comments of one of the last coding chunks, that there are some actions of different scales which are skewing the data quite a lot (represented here by outlier points on the boxplots). These limit our ability to see the shapes and distributions of the boxplots, however we should not throw these values to the way-side just yet, as they likely do represent real costs to specific actions.
+
+What might be or more value to these plots is to further investigate the distribution of the costings across the districts and to see if these high values are all tied to a specific district, which might have certain characteristics and circumstances where these actions cost a great deal more for these specific actions on these districts.
+
+Another observation is that there are a number of actions with little to no data points. Which is to say, that it is difficult to determine what their "likely average" costs are due to insufficient data present at the time. Given the fact that there is quite a range of costs for any given action (at each scale and also at each confidence - which is not shown at this time), which gives me cause for concern about trying to apply average values from these low sample data variables to provide "better" estimates for actions with lower estimate confidences.
+
+That isn't to say that these CANT be utilized, but if they are, they should be done with the consideration that there is possibilities that they may not be any more effective at estimate the total costs of a given action than professional opinion from contractors or inside personalle with experience in the managements, executions and therefore the costings of management actions.
