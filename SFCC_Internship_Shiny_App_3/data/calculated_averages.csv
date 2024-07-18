@@ -1,0 +1,844 @@
+,Proposed.Management.Action,District,Scale,Costing.Certainty,Average_Funding_Shortfall,Average_Filtered_Costings_Data,Count
+1,,Brora,Targeted Location,Little Confidence,40000,40500,1
+2,,Brora,Whole District,Very Confident,0,2000,1
+3,,Cromarty,River,N/A,0,NA,1
+4,,Doon,Targeted Location,Little Confidence,15000,15000,1
+5,,Findhorn,Whole District,N/A,NA,NA,1
+6,,Girvan,Targeted Location,Estimate,25000,25000,1
+7,,Girvan,Targeted Location,Very Confident,22620,22620,2
+8,,Helmsdale,Targeted Location,,NA,14000,1
+9,,Ness,Whole District,Very Confident,0,6000,1
+10,Angling Development,Beauly,Whole District,,NA,200,1
+11,Angling Development,Brora,Whole District,Very Confident,400,900,1
+12,Angling Development,Dee,River,Fairly Confident,0,10940,1
+13,Angling Development,Deveron,Whole District,Fairly Confident,31000,31000,1
+14,Angling Development,Don,River,Fairly Confident,0,2135,1
+15,Angling Development,Esk,Whole District,Fairly Confident,0,22000,1
+16,Angling Development,Forth,Whole District,Estimate,30000,60000,1
+17,Angling Development,Ness,Whole District,Fairly Confident,5000,5000,1
+18,Angling Development,Nith,Whole District,Very Confident,0,1.00E+05,1
+19,Angling Development,Spey,River,Fairly Confident,500,1500,1
+20,Angling Development,Ugie,River,Very Confident,0,2000,1
+21,Angling Development,West Sutherland,Whole District,,0,NA,1
+22,Barrier Mitigation,Annan,Targeted Location,Fairly Confident,0,34266.66667,3
+23,Barrier Mitigation,Annan,Catchment,Fairly Confident,34000,66000,1
+24,Barrier Mitigation,Argyll,Targeted Location,Fairly Confident,0,NA,1
+25,Barrier Mitigation,Ayr,Targeted Location,Fairly Confident,20000,20000,1
+26,Barrier Mitigation,Ayr,Targeted Location,Little Confidence,50000,50000,1
+27,Barrier Mitigation,Ayr,Targeted Location,Very Confident,5740,13340,5
+28,Barrier Mitigation,Beauly,Targeted Location,,NA,28200,2
+29,Barrier Mitigation,Beauly,Catchment,,NA,1000,2
+30,Barrier Mitigation,Caithness,River,N/A,0,NA,1
+31,Barrier Mitigation,Clyde,Catchment,Estimate,40050000,40050000,1
+32,Barrier Mitigation,Cree,River,N/A,NA,NA,1
+33,Barrier Mitigation,Cromarty,Targeted Location,Estimate,4412.5,4412.5,2
+34,Barrier Mitigation,Cromarty,Targeted Location,Fairly Confident,0,18000,2
+35,Barrier Mitigation,Cromarty,Targeted Location,N/A,0,NA,1
+36,Barrier Mitigation,Cromarty,Targeted Location,Very Confident,16666.66667,33083.33333,3
+37,Barrier Mitigation,Cromarty,River,Fairly Confident,20000,1.00E+05,1
+38,Barrier Mitigation,Cromarty,River,Little Confidence,0,55000,1
+39,Barrier Mitigation,Cromarty,River,N/A,0,NA,1
+40,Barrier Mitigation,Cromarty,River,Very Confident,0,182314,1
+41,Barrier Mitigation,Cromarty,Catchment,Very Confident,0,20000,1
+42,Barrier Mitigation,Dee,Whole District,Fairly Confident,0,5150,1
+43,Barrier Mitigation,Dee (Kircudbright),Targeted Location,Fairly Confident,0,NA,1
+44,Barrier Mitigation,Deveron,Targeted Location,Fairly Confident,25000,42757,2
+45,Barrier Mitigation,Deveron,Catchment,N/A,35000,35900,1
+46,Barrier Mitigation,Don,Whole District,Fairly Confident,0,2612.5,1
+47,Barrier Mitigation,Doon,Targeted Location,Fairly Confident,7000,7000,2
+48,Barrier Mitigation,Doon,Targeted Location,Little Confidence,8500,12142.85714,8
+49,Barrier Mitigation,Doon,Targeted Location,Very Confident,3500,3500,1
+50,Barrier Mitigation,Eachaig,Targeted Location,,NA,NA,1
+51,Barrier Mitigation,Esk,Targeted Location,Estimate,NA,15000,1
+52,Barrier Mitigation,Fleet (Kircudbright),River,Very Confident,10500,15750,1
+53,Barrier Mitigation,Forth,Targeted Location,Estimate,380000,715000,2
+54,Barrier Mitigation,Forth,Targeted Location,Very Confident,87500,97500,2
+55,Barrier Mitigation,Forth,River,N/A,0,NA,1
+56,Barrier Mitigation,Forth,River,Very Confident,15000,25000,1
+57,Barrier Mitigation,Forth,Catchment,,460000,9.00E+05,1
+58,Barrier Mitigation,Forth,Catchment,Estimate,952500,1852500,2
+59,Barrier Mitigation,Forth,Catchment,Very Confident,80000,1.00E+05,1
+60,Barrier Mitigation,Forth,Whole District,Estimate,6.00E+05,1110000,1
+61,Barrier Mitigation,Forth,Whole District,N/A,0,NA,1
+62,Barrier Mitigation,Girvan,Targeted Location,Very Confident,3000,3250,4
+63,Barrier Mitigation,Girvan,Catchment,Very Confident,0,NA,1
+64,Barrier Mitigation,Irvine and Garnock,Targeted Location,Estimate,183750,183750,4
+65,Barrier Mitigation,Irvine and Garnock,Targeted Location,Fairly Confident,49500,51916.66667,9
+66,Barrier Mitigation,Irvine and Garnock,Targeted Location,Little Confidence,114666.6667,189333.3333,3
+67,Barrier Mitigation,Irvine and Garnock,Targeted Location,Very Confident,6868.421053,8421.052632,19
+68,Barrier Mitigation,Kyle of Sutherland,Targeted Location,Little Confidence,9.00E+05,9.00E+05,1
+69,Barrier Mitigation,Kyle of Sutherland,Catchment,Estimate,0,3.00E+05,1
+70,Barrier Mitigation,Loch Lomond,Targeted Location,Estimate,6000,6200,1
+71,Barrier Mitigation,Loch Lomond,Targeted Location,N/A,NA,NA,11
+72,Barrier Mitigation,Loch Lomond,Targeted Location,Very Confident,10000,10000,2
+73,Barrier Mitigation,Lochaber,Whole District,N/A,0,NA,1
+74,Barrier Mitigation,Ness,Targeted Location,Estimate,116363.6364,207272.7273,11
+75,Barrier Mitigation,Ness,Targeted Location,Fairly Confident,0,50000,1
+76,Barrier Mitigation,Ness,Targeted Location,N/A,NA,NA,1
+77,Barrier Mitigation,Ness,Targeted Location,Very Confident,0,10000,1
+78,Barrier Mitigation,Ness,Catchment,Estimate,2000,2000,3
+79,Barrier Mitigation,Ness,Catchment,Little Confidence,2000,2000,1
+80,Barrier Mitigation,Nith,Targeted Location,Fairly Confident,30000,55000,1
+81,Barrier Mitigation,Nith,Targeted Location,Little Confidence,30000,50000,1
+82,Barrier Mitigation,Nith,Whole District,N/A,5000,10000,1
+83,Barrier Mitigation,Spey,Targeted Location,Little Confidence,150000,162500,2
+84,Barrier Mitigation,Spey,Whole District,N/A,0,NA,1
+85,Barrier Mitigation,Stinchar,Targeted Location,Fairly Confident,10000,10000,1
+86,Barrier Mitigation,Stinchar,Targeted Location,Little Confidence,30000,30000,1
+87,Barrier Mitigation,Stinchar,Targeted Location,Very Confident,5750,9000,2
+88,Barrier Mitigation,Stinchar,Catchment,Very Confident,1000,2000,1
+89,Barrier Mitigation,Tay,Targeted Location,Estimate,55000,329875,4
+90,Barrier Mitigation,Tay,Targeted Location,Fairly Confident,0,4000,1
+91,Barrier Mitigation,Tay,Targeted Location,Little Confidence,0,52000,1
+92,Barrier Mitigation,Tay,River,Estimate,35000,91000,2
+93,Barrier Mitigation,Tay,Whole District,Fairly Confident,0,60000,1
+94,Barrier Mitigation,Tweed,Targeted Location,Little Confidence,5.00E+06,9.00E+06,1
+95,Barrier Mitigation,Tweed,Targeted Location,N/A,NA,36000,5
+96,Barrier Mitigation,Urr,Targeted Location,Fairly Confident,0,1400,2
+97,Barrier Mitigation,West Sutherland,Targeted Location,,0,NA,5
+98,Barrier Mitigation,Wester Ross,Targeted Location,Estimate,1850,2700,4
+99,Barrier Mitigation,Western Isles,Targeted Location,Little Confidence,105000,105750,1
+100,Campaigning,Deveron,River,N/A,0,NA,1
+101,Campaigning,Deveron,Catchment,N/A,0,NA,1
+102,Campaigning,Deveron,Whole District,Fairly Confident,5000,5000,1
+103,Campaigning,Deveron,NA,N/A,0,NA,1
+104,Campaigning,Esk,Whole District,N/A,NA,11000,1
+105,Campaigning,Findhorn,Coastal,Little Confidence,NA,NA,3
+106,Campaigning,Forth,Whole District,Estimate,11333.33333,22000,3
+107,Campaigning,Forth,Whole District,N/A,0,5000,2
+108,Campaigning,Nairn,Whole District,,NA,NA,3
+109,Campaigning,Spey,Coastal,Estimate,1000,1000,1
+110,Campaigning,Spey,Whole District,Fairly Confident,11000,21500,1
+111,Campaigning,West Sutherland,Catchment,,0,NA,1
+112,Collaboration,Argyll,Coastal,Fairly Confident,0,NA,8
+113,Collaboration,Argyll,Catchment,Estimate,10000,10000,1
+114,Collaboration,Beauly,Targeted Location,,NA,28100,2
+115,Collaboration,Beauly,River,,NA,140,1
+116,Collaboration,Beauly,Catchment,,NA,20180,6
+117,Collaboration,Beauly,Whole District,,NA,1350,2
+118,Collaboration,Caithness,River,Fairly Confident,6000,12000,1
+119,Collaboration,Caithness,River,N/A,0,NA,1
+120,Collaboration,Deveron,Coastal,N/A,0,NA,2
+121,Collaboration,Deveron,River,Little Confidence,3500,3500,1
+122,Collaboration,Deveron,Catchment,Fairly Confident,5000,5000,1
+123,Collaboration,Doon,Targeted Location,Little Confidence,3000,3000,1
+124,Collaboration,Doon,Catchment,N/A,NA,NA,1
+125,Collaboration,Doon,Catchment,Very Confident,0,11000,1
+126,Collaboration,Esk,Coastal,N/A,NA,2000,1
+127,Collaboration,Forth,Targeted Location,Estimate,5.00E+05,940000,1
+128,Collaboration,Forth,Targeted Location,Very Confident,232000,439000,1
+129,Collaboration,Forth,Coastal,Estimate,7500,17500,2
+130,Collaboration,Forth,Catchment,Estimate,15250000,30385000,2
+131,Collaboration,Forth,Catchment,Very Confident,4205000,8205000,3
+132,Collaboration,Forth,Whole District,,17000,32750,4
+133,Collaboration,Forth,Whole District,N/A,0,NA,1
+134,Collaboration,Kyle of Sutherland,River,Estimate,6860227,6860227,1
+135,Collaboration,Kyle of Sutherland,Catchment,,0,NA,1
+136,Collaboration,Kyle of Sutherland,Whole District,Very Confident,7000,17000,1
+137,Collaboration,Lochaber,Targeted Location,Fairly Confident,0,NA,2
+138,Collaboration,Ness,Coastal,N/A,NA,NA,1
+139,Collaboration,Ness,Coastal,Very Confident,0,70000,1
+140,Collaboration,Ness,River,Very Confident,0,5.00E+05,1
+141,Collaboration,Ness,Catchment,Very Confident,0,6500,1
+142,Collaboration,Nith,Whole District,Very Confident,0,1.00E+05,1
+143,Collaboration,Northern,Targeted Location,Estimate,NA,NA,1
+144,Collaboration,Spey,Targeted Location,Estimate,2.00E+05,2.00E+05,1
+145,Collaboration,Ugie,Whole District,Very Confident,0,5000,1
+146,Collaboration,West Sutherland,Coastal,Fairly Confident,883.3333333,8100,3
+147,Collaboration,West Sutherland,River,,0,NA,4
+148,Collaboration,Western Isles,Targeted Location,Little Confidence,750000,750000,1
+149,Enforcement,Annan,Whole District,Fairly Confident,0,5000,1
+150,Enforcement,Ayr,Whole District,Very Confident,5000,10000,1
+151,Enforcement,Beauly,Whole District,,NA,82000,1
+152,Enforcement,Brora,Coastal,N/A,0,NA,1
+153,Enforcement,Brora,Catchment,Fairly Confident,0,60000,1
+154,Enforcement,Clyde,Catchment,Estimate,1.00E+05,275000,1
+155,Enforcement,Cree,Whole District,N/A,NA,NA,1
+156,Enforcement,Dee,Whole District,Very Confident,25000,161160,1
+157,Enforcement,Deveron,Targeted Location,Fairly Confident,20000,20000,1
+158,Enforcement,Deveron,Coastal,Very Confident,0,713,1
+159,Enforcement,Deveron,River,Very Confident,0,23758,1
+160,Enforcement,Deveron,Catchment,N/A,0,1248,1
+161,Enforcement,Deveron,Catchment,Very Confident,0,1684,1
+162,Enforcement,Don,Whole District,Very Confident,25000,80580,1
+163,Enforcement,Doon,Whole District,Very Confident,0,2500,1
+164,Enforcement,Esk,Whole District,Very Confident,0,41000,1
+165,Enforcement,Findhorn,Whole District,Fairly Confident,0,73000,1
+166,Enforcement,Forth,Targeted Location,Estimate,370000,720000,1
+167,Enforcement,Forth,Whole District,Estimate,1027500,2050000,2
+168,Enforcement,Forth,Whole District,Little Confidence,150000,3.00E+05,1
+169,Enforcement,Girvan,Whole District,Very Confident,0,NA,1
+170,Enforcement,Helmsdale,Whole District,,NA,NA,1
+171,Enforcement,Kyle of Sutherland,Whole District,Very Confident,0,180000,1
+172,Enforcement,Lochaber,Whole District,Fairly Confident,0,NA,1
+173,Enforcement,Lossie,Whole District,Little Confidence,2500,2500,1
+174,Enforcement,Nairn,Whole District,Fairly Confident,8000,33000,1
+175,Enforcement,Ness,River,Very Confident,0,60000,1
+176,Enforcement,Ness,Catchment,Very Confident,0,60000,1
+177,Enforcement,Ness,Whole District,Very Confident,0,32175,2
+178,Enforcement,Nith,Whole District,Very Confident,30000,170000,1
+179,Enforcement,Northern,Whole District,Very Confident,0,26000,1
+180,Enforcement,Spey,Coastal,Very Confident,9000,9000,1
+181,Enforcement,Spey,Whole District,Very Confident,161000,161000,1
+182,Enforcement,Stinchar,Whole District,Fairly Confident,1000,1000,1
+183,Enforcement,Tay,Whole District,Fairly Confident,0,4.00E+05,1
+184,Enforcement,Tweed,Whole District,Very Confident,0,207000,1
+185,Enforcement,Western Isles,Whole District,Very Confident,0,NA,1
+186,Improving Instream Habitat,Annan,Targeted Location,Fairly Confident,0,2100,1
+187,Improving Instream Habitat,Annan,River,Fairly Confident,2100,2100,1
+188,Improving Instream Habitat,Argyll,Coastal,Little Confidence,1.00E+06,1.00E+06,2
+189,Improving Instream Habitat,Argyll,Whole District,Fairly Confident,0,NA,5
+190,Improving Instream Habitat,Ayr,Targeted Location,Estimate,1750000,1750000,1
+191,Improving Instream Habitat,Ayr,River,Fairly Confident,42906,42906,2
+192,Improving Instream Habitat,Ayr,Catchment,Very Confident,169300,169300,3
+193,Improving Instream Habitat,Beauly,Catchment,,NA,700,1
+194,Improving Instream Habitat,Bladnoch,Targeted Location,Estimate,30000,43333.33333,3
+195,Improving Instream Habitat,Bladnoch,Targeted Location,Very Confident,0,2000,1
+196,Improving Instream Habitat,Bladnoch,River,Estimate,0,2000,1
+197,Improving Instream Habitat,Brora,Targeted Location,,NA,NA,1
+198,Improving Instream Habitat,Brora,Targeted Location,Little Confidence,10000,15250,3
+199,Improving Instream Habitat,Caithness,Catchment,Fairly Confident,0,3000,1
+200,Improving Instream Habitat,Clyde,Targeted Location,Estimate,1.00E+05,205000,1
+201,Improving Instream Habitat,Cree,River,N/A,NA,NA,1
+202,Improving Instream Habitat,Cromarty,Targeted Location,Estimate,2000,2250,1
+203,Improving Instream Habitat,Cromarty,Targeted Location,Fairly Confident,0,101250,2
+204,Improving Instream Habitat,Cromarty,Targeted Location,Very Confident,0,20950,2
+205,Improving Instream Habitat,Cromarty,River,N/A,0,NA,1
+206,Improving Instream Habitat,Dee,Targeted Location,Very Confident,0,297408,1
+207,Improving Instream Habitat,Dee,Catchment,Estimate,5.00E+06,5.00E+06,1
+208,Improving Instream Habitat,Dee (Kircudbright),River,Fairly Confident,0,40000,1
+209,Improving Instream Habitat,Dee (Kircudbright),River,Very Confident,0,180000,1
+210,Improving Instream Habitat,Deveron,Targeted Location,Little Confidence,36250,45900,4
+211,Improving Instream Habitat,Don,Catchment,Estimate,5.00E+06,5004250,1
+212,Improving Instream Habitat,Doon,Targeted Location,Fairly Confident,27500,58000,1
+213,Improving Instream Habitat,Doon,Targeted Location,N/A,20000,20000,1
+214,Improving Instream Habitat,Doon,Targeted Location,Very Confident,0,29500,1
+215,Improving Instream Habitat,Doon,River,Estimate,5.00E+05,5.00E+05,1
+216,Improving Instream Habitat,Doon,Whole District,Estimate,84000,168000,1
+217,Improving Instream Habitat,Esk,Catchment,Estimate,NA,56000,3
+218,Improving Instream Habitat,Esk,Catchment,N/A,NA,NA,3
+219,Improving Instream Habitat,Fleet (Kircudbright),Targeted Location,Fairly Confident,25000,30000,1
+220,Improving Instream Habitat,Fleet (Kircudbright),River,Fairly Confident,5000,5000,1
+221,Improving Instream Habitat,Forth,Targeted Location,N/A,0,NA,1
+222,Improving Instream Habitat,Girvan,Targeted Location,Estimate,1.00E+05,1.00E+05,1
+223,Improving Instream Habitat,Girvan,Targeted Location,Little Confidence,5.00E+05,5.00E+05,1
+224,Improving Instream Habitat,Girvan,Targeted Location,Very Confident,12560,50150,5
+225,Improving Instream Habitat,Girvan,River,Fairly Confident,150000,150000,1
+226,Improving Instream Habitat,Girvan,River,Very Confident,3000,5500,2
+227,Improving Instream Habitat,Irvine and Garnock,Targeted Location,,NA,39000,1
+228,Improving Instream Habitat,Irvine and Garnock,Targeted Location,Fairly Confident,50800,101600,1
+229,Improving Instream Habitat,Irvine and Garnock,River,Little Confidence,140000,140000,1
+230,Improving Instream Habitat,Irvine and Garnock,Catchment,Estimate,80000,80000,1
+231,Improving Instream Habitat,Kyle of Sutherland,River,Estimate,190000,320000,1
+232,Improving Instream Habitat,Kyle of Sutherland,River,Fairly Confident,25000,220000,1
+233,Improving Instream Habitat,Laggan and Sorn,River,,NA,10000,1
+234,Improving Instream Habitat,Loch Lomond,Targeted Location,N/A,NA,NA,2
+235,Improving Instream Habitat,Loch Lomond,River,Estimate,20000,22000,1
+236,Improving Instream Habitat,Loch Lomond,River,Fairly Confident,2000,22000,1
+237,Improving Instream Habitat,Loch Lomond,River,Very Confident,20000,22000,1
+238,Improving Instream Habitat,Luce,Targeted Location,Fairly Confident,20000,20000,1
+239,Improving Instream Habitat,Luce,Targeted Location,Very Confident,0,32000,1
+240,Improving Instream Habitat,Luce,River,Fairly Confident,0,2800,1
+241,Improving Instream Habitat,Ness,Targeted Location,N/A,NA,NA,1
+242,Improving Instream Habitat,Ness,River,Estimate,69000,69000,5
+243,Improving Instream Habitat,Ness,River,N/A,NA,20000,1
+244,Improving Instream Habitat,Ness,Catchment,Estimate,69000,69000,3
+245,Improving Instream Habitat,Ness,Catchment,N/A,NA,NA,1
+246,Improving Instream Habitat,Ness,Catchment,Very Confident,0,50000,1
+247,Improving Instream Habitat,Nith,River,Estimate,1.00E+06,1025000,3
+248,Improving Instream Habitat,Nith,Catchment,Very Confident,75000,150000,1
+249,Improving Instream Habitat,Nith,Whole District,Fairly Confident,5.00E+05,810000,1
+250,Improving Instream Habitat,Nith,Whole District,Very Confident,0,25000,1
+251,Improving Instream Habitat,Spey,Targeted Location,Fairly Confident,500,174333.3333,3
+252,Improving Instream Habitat,Spey,Targeted Location,Very Confident,0,1100,1
+253,Improving Instream Habitat,Spey,River,Estimate,62750,125500,2
+254,Improving Instream Habitat,Spey,River,Fairly Confident,1000,2500,1
+255,Improving Instream Habitat,Spey,River,N/A,0,NA,1
+256,Improving Instream Habitat,Stinchar,Targeted Location,Fairly Confident,20000,20000,1
+257,Improving Instream Habitat,Stinchar,River,Fairly Confident,24500,39500,4
+258,Improving Instream Habitat,Stinchar,River,Very Confident,5000,5000,1
+259,Improving Instream Habitat,Tweed,Whole District,N/A,NA,5.00E+05,1
+260,Improving Instream Habitat,Ugie,Targeted Location,Very Confident,7200,8200,1
+261,Improving Instream Habitat,Ugie,River,Estimate,7500,15000,1
+262,Improving Instream Habitat,Ugie,River,Very Confident,9600,11600,2
+263,Improving Instream Habitat,Urr,Targeted Location,Fairly Confident,0,3000,1
+264,Improving Instream Habitat,Urr,River,Fairly Confident,5000,5000,1
+265,Improving Instream Habitat,Wester Ross,River,Estimate,250,1000,4
+266,Improving Instream Habitat,Wester Ross,Catchment,Estimate,6750,12000,4
+267,Improving Instream Habitat,Ythan,Whole District,,NA,6000,1
+268,Improving Riparian Habitat,Annan,River,Fairly Confident,10000,13025,2
+269,Improving Riparian Habitat,Argyll,River,Estimate,608333.3333,608333.3333,12
+270,Improving Riparian Habitat,Ayr,Targeted Location,Fairly Confident,32000,32000,1
+271,Improving Riparian Habitat,Ayr,River,Estimate,250000,250000,1
+272,Improving Riparian Habitat,Ayr,River,Little Confidence,199400,199400,2
+273,Improving Riparian Habitat,Ayr,Catchment,Very Confident,85894.68421,85894.68421,19
+274,Improving Riparian Habitat,Ayr,Whole District,Estimate,72000,144000,1
+275,Improving Riparian Habitat,Bladnoch,River,Fairly Confident,15000,20000,1
+276,Improving Riparian Habitat,Brora,Targeted Location,Fairly Confident,25000,25666.66667,3
+277,Improving Riparian Habitat,Brora,Targeted Location,Little Confidence,25000,25250,2
+278,Improving Riparian Habitat,Brora,River,Fairly Confident,90000,90500,1
+279,Improving Riparian Habitat,Clyde,Targeted Location,Estimate,1.00E+05,205000,1
+280,Improving Riparian Habitat,Cree,River,N/A,NA,NA,3
+281,Improving Riparian Habitat,Cromarty,Whole District,Very Confident,0,27100,2
+282,Improving Riparian Habitat,Dee,Whole District,Estimate,50000,102000,1
+283,Improving Riparian Habitat,Dee (Kircudbright),River,Fairly Confident,20000,30000,1
+284,Improving Riparian Habitat,Deveron,River,Very Confident,60000,60000,1
+285,Improving Riparian Habitat,Deveron,Catchment,Estimate,5.00E+05,5.00E+05,1
+286,Improving Riparian Habitat,Deveron,Catchment,N/A,0,600,1
+287,Improving Riparian Habitat,Don,Whole District,Estimate,50000,50400,1
+288,Improving Riparian Habitat,Doon,Targeted Location,Little Confidence,1.00E+05,1.00E+05,1
+289,Improving Riparian Habitat,Doon,River,Fairly Confident,40000,40000,1
+290,Improving Riparian Habitat,Doon,Whole District,Estimate,52000,104000,1
+291,Improving Riparian Habitat,Eachaig,Whole District,,NA,NA,1
+292,Improving Riparian Habitat,Esk,Catchment,Estimate,NA,366666.6667,3
+293,Improving Riparian Habitat,Findhorn,Whole District,N/A,1000,5000,1
+294,Improving Riparian Habitat,Fleet (Kircudbright),River,Fairly Confident,25000,30000,1
+295,Improving Riparian Habitat,Girvan,Targeted Location,Very Confident,11900,11900,4
+296,Improving Riparian Habitat,Girvan,River,Very Confident,89066.66667,89066.66667,3
+297,Improving Riparian Habitat,Helmsdale,Whole District,,NA,3000,1
+298,Improving Riparian Habitat,Irvine and Garnock,Targeted Location,Estimate,32750,43000,2
+299,Improving Riparian Habitat,Irvine and Garnock,River,Estimate,121333.3333,142666.6667,3
+300,Improving Riparian Habitat,Irvine and Garnock,River,Fairly Confident,129228,258456,1
+301,Improving Riparian Habitat,Irvine and Garnock,River,Little Confidence,2.00E+05,2.00E+05,1
+302,Improving Riparian Habitat,Irvine and Garnock,Catchment,Estimate,4.00E+05,4.00E+05,1
+303,Improving Riparian Habitat,Kyle of Sutherland,Whole District,Estimate,5250000,5250000,1
+304,Improving Riparian Habitat,Lossie,Whole District,N/A,300,1800,1
+305,Improving Riparian Habitat,Luce,Targeted Location,Fairly Confident,5000,6000,1
+306,Improving Riparian Habitat,Nairn,Whole District,N/A,NA,NA,1
+307,Improving Riparian Habitat,Spey,Targeted Location,Estimate,30000,33000,1
+308,Improving Riparian Habitat,Stinchar,Targeted Location,Fairly Confident,30750,43350,4
+309,Improving Riparian Habitat,Stinchar,Targeted Location,Very Confident,5000,5000,1
+310,Improving Riparian Habitat,Stinchar,River,Fairly Confident,40700,40700,2
+311,Improving Riparian Habitat,Tay,Targeted Location,Estimate,20000,57250,2
+312,Improving Riparian Habitat,Tay,River,Estimate,175000,180750,2
+313,Improving Riparian Habitat,Urr,River,Fairly Confident,9000,12000,1
+314,Improving Riparian Habitat,West Sutherland,Catchment,,0,NA,6
+315,Improving Riparian Habitat,West Sutherland,Whole District,,0,NA,1
+316,Improving Riparian Habitat,Wester Ross,Targeted Location,N/A,10500,21000,3
+317,Improving Riparian Habitat,Wester Ross,River,Estimate,7000,21000,3
+318,Improving Riparian Habitat,Wester Ross,Catchment,Estimate,20750,41500,4
+319,Land Management,Annan,Catchment,Fairly Confident,0,1050,1
+320,Land Management,Ayr,River,Estimate,505000,1010000,1
+321,Land Management,Ayr,Catchment,Very Confident,20000,20000,1
+322,Land Management,Beauly,Catchment,,NA,800,1
+323,Land Management,Bladnoch,Catchment,Fairly Confident,0,1050,1
+324,Land Management,Cree,Catchment,Estimate,NA,1050,1
+325,Land Management,Dee,Coastal,Very Confident,0,4000,1
+326,Land Management,Dee,Whole District,Estimate,50000,115466,1
+327,Land Management,Dee,Whole District,Very Confident,0,4000,1
+328,Land Management,Dee (Kircudbright),Catchment,Fairly Confident,0,1050,1
+329,Land Management,Deveron,Catchment,Estimate,150300,150300,2
+330,Land Management,Don,Coastal,Very Confident,0,800,1
+331,Land Management,Don,Whole District,Estimate,50000,52645,1
+332,Land Management,Don,Whole District,Very Confident,0,2000,1
+333,Land Management,Doon,Catchment,Fairly Confident,20000,20000,1
+334,Land Management,Eachaig,Targeted Location,,NA,NA,1
+335,Land Management,Fleet (Kircudbright),Catchment,Very Confident,0,1050,1
+336,Land Management,Forth,NA,N/A,0,NA,1
+337,Land Management,Girvan,Catchment,Very Confident,30000,30000,1
+338,Land Management,Girvan,Whole District,Estimate,2.00E+05,2.00E+05,1
+339,Land Management,Irvine and Garnock,River,Estimate,101000,202000,1
+340,Land Management,Irvine and Garnock,Catchment,Little Confidence,70500,141000,1
+341,Land Management,Irvine and Garnock,NA,,NA,20000,1
+342,Land Management,Laggan and Sorn,Targeted Location,,NA,5000,1
+343,Land Management,Lochaber,Whole District,N/A,0,NA,1
+344,Land Management,Luce,Catchment,Fairly Confident,0,1050,1
+345,Land Management,Ness,Targeted Location,N/A,NA,NA,1
+346,Land Management,Ness,River,Estimate,2000,2000,4
+347,Land Management,Ness,Catchment,Estimate,2000,2000,4
+348,Land Management,Spey,River,Fairly Confident,3000,6000,1
+349,Land Management,Spey,Catchment,Fairly Confident,20000,290000,1
+350,Land Management,Spey,Catchment,N/A,0,NA,1
+351,Land Management,Stinchar,Whole District,Very Confident,20000,50000,1
+352,Land Management,Tay,Catchment,Estimate,1.00E+06,1010000,1
+353,Land Management,Ugie,Catchment,Very Confident,0,2500,1
+354,Land Management,Urr,Catchment,Fairly Confident,0,1050,1
+355,Land Management,West Sutherland,Whole District,Estimate,8000,8000,1
+356,Lobbying,Annan,Catchment,Fairly Confident,0,2000,1
+357,Lobbying,Beauly,Coastal,,NA,NA,1
+358,Lobbying,Bladnoch,Catchment,Very Confident,0,1000,1
+359,Lobbying,Brora,Coastal,N/A,0,NA,1
+360,Lobbying,Brora,Catchment,Very Confident,0,NA,1
+361,Lobbying,Dee (Kircudbright),Catchment,Fairly Confident,0,2000,1
+362,Lobbying,Esk,Whole District,Little Confidence,NA,6500,1
+363,Lobbying,Fleet (Kircudbright),Catchment,Very Confident,0,1000,1
+364,Lobbying,Forth,Targeted Location,N/A,0,NA,1
+365,Lobbying,Forth,Coastal,N/A,0,NA,1
+366,Lobbying,Forth,Whole District,Estimate,10050000,20065000,1
+367,Lobbying,Forth,Whole District,N/A,0,NA,1
+368,Lobbying,Kyle of Sutherland,Targeted Location,,0,NA,1
+369,Lobbying,Kyle of Sutherland,River,,0,NA,1
+370,Lobbying,Luce,Catchment,Fairly Confident,0,1000,1
+371,Lobbying,Ness,Targeted Location,Estimate,5000,5000,1
+372,Lobbying,Northern,Whole District,Estimate,1000,5000,1
+373,Lobbying,Spey,Coastal,Fairly Confident,2500,2500,1
+374,Lobbying,Tweed,Targeted Location,N/A,NA,NA,1
+375,Lobbying,Tweed,Whole District,N/A,NA,130000,1
+376,Lobbying,Urr,Catchment,Fairly Confident,0,700,1
+377,Lobbying,Western Isles,Whole District,N/A,0,NA,2
+378,Managing Predators,Argyll,River,Fairly Confident,0,NA,1
+379,Managing Predators,Beauly,River,,NA,600,1
+380,Managing Predators,Beauly,Catchment,,NA,1400,1
+381,Managing Predators,Bladnoch,River,Very Confident,0,2000,1
+382,Managing Predators,Cree,River,N/A,NA,NA,3
+383,Managing Predators,Cromarty,Targeted Location,Very Confident,0,2100,1
+384,Managing Predators,Cromarty,Whole District,Very Confident,0,6000,2
+385,Managing Predators,Dee,Coastal,Very Confident,0,950,1
+386,Managing Predators,Dee,River,Little Confidence,35000,84650,1
+387,Managing Predators,Dee,River,Very Confident,4500,28292,1
+388,Managing Predators,Deveron,River,Very Confident,3320,5517.5,2
+389,Managing Predators,Deveron,Catchment,Very Confident,0,89621.97,1
+390,Managing Predators,Don,River,Little Confidence,35000,37125,1
+391,Managing Predators,Don,River,Very Confident,4500,14146,1
+392,Managing Predators,Esk,Targeted Location,Very Confident,0,5000,1
+393,Managing Predators,Esk,Coastal,Fairly Confident,0,6000,1
+394,Managing Predators,Findhorn,Catchment,Little Confidence,0,2000,1
+395,Managing Predators,Findhorn,Catchment,Very Confident,0,4000,1
+396,Managing Predators,Forth,Whole District,Estimate,40000,80000,1
+397,Managing Predators,Kyle of Sutherland,Whole District,Fairly Confident,15500,26000,1
+398,Managing Predators,Kyle of Sutherland,Whole District,Very Confident,0,7500,1
+399,Managing Predators,Loch Lomond,Catchment,Estimate,6666.666667,13750,4
+400,Managing Predators,Loch Lomond,Catchment,Fairly Confident,7500,15000,1
+401,Managing Predators,Lochaber,Catchment,N/A,0,NA,1
+402,Managing Predators,Lossie,Coastal,,NA,NA,1
+403,Managing Predators,Lossie,Whole District,Estimate,250,350,1
+404,Managing Predators,Nairn,Coastal,,NA,NA,1
+405,Managing Predators,Nairn,Whole District,Fairly Confident,500,1000,1
+406,Managing Predators,Ness,Whole District,Estimate,10000,10000,1
+407,Managing Predators,Ness,Whole District,Very Confident,0,8250,2
+408,Managing Predators,Nith,Targeted Location,Very Confident,0,10000,1
+409,Managing Predators,Nith,River,Very Confident,0,60000,1
+410,Managing Predators,Northern,Whole District,Very Confident,0,1000,1
+411,Managing Predators,Skye,River,Little Confidence,0,600,1
+412,Managing Predators,Spey,Whole District,Very Confident,1750,3250,2
+413,Managing Predators,Stinchar,Whole District,Fairly Confident,2000,3000,1
+414,Managing Predators,Tay,Targeted Location,Very Confident,0,30000,1
+415,Managing Predators,Tay,River,Fairly Confident,0,4000,1
+416,Managing Predators,Tweed,Whole District,Very Confident,0,16000,1
+417,Managing Predators,Ugie,River,Estimate,0,3000,1
+418,Managing Predators,Ythan,Whole District,,NA,10000,1
+419,Managing Species Interactions,Ayr,River,N/A,5000,10000,1
+420,Managing Species Interactions,Brora,Coastal,N/A,0,NA,1
+421,Managing Species Interactions,Brora,River,N/A,0,NA,1
+422,Managing Species Interactions,Cromarty,Targeted Location,N/A,0,NA,1
+423,Managing Species Interactions,Doon,River,Little Confidence,2500,2500,1
+424,Managing Species Interactions,Eachaig,Coastal,,NA,NA,1
+425,Managing Species Interactions,Findhorn,Targeted Location,N/A,NA,NA,1
+426,Managing Species Interactions,Forth,Catchment,Very Confident,150000,160000,1
+427,Managing Species Interactions,Girvan,River,Very Confident,0,NA,1
+428,Managing Species Interactions,Irvine and Garnock,Targeted Location,Fairly Confident,16500,33000,1
+429,Managing Species Interactions,Laggan and Sorn,River,,NA,5000,1
+430,Managing Species Interactions,Lossie,Targeted Location,Fairly Confident,NA,NA,1
+431,Managing Species Interactions,Lossie,Targeted Location,N/A,NA,NA,1
+432,Managing Species Interactions,Nairn,Targeted Location,N/A,NA,NA,1
+433,Managing Species Interactions,Ness,Coastal,Estimate,10000,10000,1
+434,Managing Species Interactions,Ness,River,Very Confident,0,1000,1
+435,Managing Species Interactions,Spey,Whole District,Estimate,1500,1500,1
+436,Managing Species Interactions,Spey,Whole District,Fairly Confident,45000,97500,1
+437,Managing Species Interactions,Stinchar,River,Fairly Confident,3000,3000,1
+438,Managing Species Interactions,Wester Ross,Coastal,Estimate,2500,2500,1
+439,Monitoring,Annan,River,Fairly Confident,0,2000,1
+440,Monitoring,Annan,Catchment,Fairly Confident,0,2100,1
+441,Monitoring,Annan,Whole District,Fairly Confident,0,3500,2
+442,Monitoring,Ayr,Catchment,Little Confidence,36500,64000,2
+443,Monitoring,Ayr,Whole District,Very Confident,2000,10500,1
+444,Monitoring,Beauly,Targeted Location,,NA,30100,2
+445,Monitoring,Beauly,River,,NA,700,2
+446,Monitoring,Beauly,Catchment,,NA,6750,6
+447,Monitoring,Beauly,Whole District,,NA,5600,1
+448,Monitoring,Bladnoch,River,Very Confident,3000,5100,2
+449,Monitoring,Bladnoch,Catchment,Fairly Confident,0,1400,2
+450,Monitoring,Bladnoch,Whole District,Estimate,0,3150,1
+451,Monitoring,Brora,Catchment,Very Confident,0,10000,1
+452,Monitoring,Caithness,River,Fairly Confident,0,2000,2
+453,Monitoring,Caithness,Catchment,Fairly Confident,0,3000,1
+454,Monitoring,Caithness,Whole District,Fairly Confident,0,4000,1
+455,Monitoring,Caithness,Whole District,Very Confident,0,21000,1
+456,Monitoring,Clyde,Catchment,Estimate,40000,82500,4
+457,Monitoring,Clyde,Catchment,Fairly Confident,60000,140000,1
+458,Monitoring,Cree,River,N/A,NA,NA,1
+459,Monitoring,Cree,Whole District,N/A,NA,NA,1
+460,Monitoring,Cromarty,River,Very Confident,0,5000,3
+461,Monitoring,Dee,River,Very Confident,0,1310,1
+462,Monitoring,Dee (Kircudbright),Targeted Location,Fairly Confident,0,6000,1
+463,Monitoring,Dee (Kircudbright),River,Fairly Confident,3000,3000,1
+464,Monitoring,Dee (Kircudbright),Catchment,Fairly Confident,0,1400,1
+465,Monitoring,Dee (Kircudbright),Whole District,Fairly Confident,0,3150,1
+466,Monitoring,Deveron,Targeted Location,Fairly Confident,7000,41849,1
+467,Monitoring,Deveron,River,Estimate,5050,5050,1
+468,Monitoring,Deveron,River,Fairly Confident,18000,21428,5
+469,Monitoring,Deveron,River,N/A,600,600,1
+470,Monitoring,Deveron,Catchment,Estimate,2000,2000,1
+471,Monitoring,Deveron,Catchment,N/A,0,1800,1
+472,Monitoring,Deveron,Whole District,N/A,0,NA,1
+473,Monitoring,Don,River,Very Confident,0,1062.5,1
+474,Monitoring,Doon,Targeted Location,Little Confidence,5000,5000,1
+475,Monitoring,Doon,Targeted Location,Very Confident,6000,6000,1
+476,Monitoring,Doon,Catchment,Fairly Confident,12000,12000,1
+477,Monitoring,Doon,Catchment,Very Confident,6333.333333,13500,3
+478,Monitoring,Doon,Whole District,Very Confident,0,3000,1
+479,Monitoring,Esk,Whole District,Fairly Confident,0,10800,2
+480,Monitoring,Findhorn,Targeted Location,N/A,NA,NA,1
+481,Monitoring,Findhorn,River,Estimate,15000,33000,1
+482,Monitoring,Findhorn,River,Fairly Confident,0,16000,2
+483,Monitoring,Findhorn,River,N/A,NA,NA,1
+484,Monitoring,Findhorn,Whole District,Little Confidence,NA,NA,1
+485,Monitoring,Fleet (Kircudbright),River,Fairly Confident,1200,1800,1
+486,Monitoring,Fleet (Kircudbright),River,Very Confident,3000,3000,1
+487,Monitoring,Fleet (Kircudbright),Whole District,Very Confident,0,3150,1
+488,Monitoring,Forth,Targeted Location,,138333.3333,245666.6667,3
+489,Monitoring,Forth,Targeted Location,Estimate,20000,32500,2
+490,Monitoring,Forth,Coastal,,0,NA,1
+491,Monitoring,Forth,Coastal,Estimate,907500,1775000,2
+492,Monitoring,Forth,River,,15000,15000,8
+493,Monitoring,Forth,Catchment,,55000,1.00E+05,1
+494,Monitoring,Forth,Whole District,,25000,51875,9
+495,Monitoring,Forth,Whole District,Estimate,25000,52500,2
+496,Monitoring,Forth,Whole District,N/A,0,NA,3
+497,Monitoring,Forth,Whole District,Very Confident,85000,155000,1
+498,Monitoring,Girvan,Whole District,Fairly Confident,4500,4500,1
+499,Monitoring,Helmsdale,Targeted Location,,NA,2500,1
+500,Monitoring,Kyle of Sutherland,Targeted Location,Very Confident,0,12000,3
+501,Monitoring,Kyle of Sutherland,Catchment,Fairly Confident,10000,10000,1
+502,Monitoring,Kyle of Sutherland,Whole District,Estimate,325000,660000,1
+503,Monitoring,Lochaber,Targeted Location,Fairly Confident,0,NA,1
+504,Monitoring,Lochaber,Targeted Location,N/A,0,NA,2
+505,Monitoring,Lochaber,Coastal,N/A,0,NA,1
+506,Monitoring,Lochaber,Catchment,Estimate,10000,10000,1
+507,Monitoring,Lochaber,Catchment,Fairly Confident,0,NA,2
+508,Monitoring,Lochaber,Catchment,N/A,0,NA,4
+509,Monitoring,Lochaber,Catchment,Very Confident,0,NA,1
+510,Monitoring,Lossie,River,Estimate,4783.333333,4900,3
+511,Monitoring,Luce,River,Fairly Confident,0,2250,1
+512,Monitoring,Luce,River,Very Confident,0,3000,1
+513,Monitoring,Luce,Catchment,Fairly Confident,0,1400,1
+514,Monitoring,Luce,Catchment,N/A,0,NA,1
+515,Monitoring,Luce,Whole District,Fairly Confident,0,3150,1
+516,Monitoring,Nairn,Targeted Location,Little Confidence,NA,NA,1
+517,Monitoring,Nairn,River,,NA,NA,3
+518,Monitoring,Nairn,River,Little Confidence,4500,4500,1
+519,Monitoring,Nairn,Whole District,,NA,NA,1
+520,Monitoring,Ness,River,Fairly Confident,0,50000,1
+521,Monitoring,Ness,Whole District,Very Confident,0,6500,1
+522,Monitoring,Nith,Catchment,Estimate,1500000,1590000,1
+523,Monitoring,Nith,Whole District,Estimate,1.00E+05,2.00E+05,1
+524,Monitoring,Nith,Whole District,Very Confident,7500,162500,2
+525,Monitoring,Northern,Targeted Location,Very Confident,550,20550,1
+526,Monitoring,Northern,Catchment,N/A,NA,NA,1
+527,Monitoring,Northern,Catchment,Very Confident,3000,11625,2
+528,Monitoring,Northern,Whole District,Very Confident,0,NA,1
+529,Monitoring,Skye,Catchment,Little Confidence,30000,60000,1
+530,Monitoring,Skye,Catchment,Very Confident,6000,28000,1
+531,Monitoring,Skye,Whole District,Fairly Confident,0,80000,2
+532,Monitoring,Skye,Whole District,Little Confidence,2000,4000,1
+533,Monitoring,Skye,Whole District,Very Confident,0,NA,1
+534,Monitoring,Spey,Targeted Location,Very Confident,0,2000,1
+535,Monitoring,Spey,Coastal,Little Confidence,2500,5000,1
+536,Monitoring,Spey,River,Fairly Confident,0,60000,1
+537,Monitoring,Spey,River,Very Confident,0,8000,2
+538,Monitoring,Spey,Whole District,Estimate,21000,32000,1
+539,Monitoring,Spey,Whole District,Fairly Confident,6750,13000,2
+540,Monitoring,Spey,Whole District,Very Confident,30000,87000,1
+541,Monitoring,Stinchar,Targeted Location,N/A,NA,NA,1
+542,Monitoring,Stinchar,Whole District,Fairly Confident,25000,25000,1
+543,Monitoring,Stinchar,Whole District,Very Confident,0,NA,1
+544,Monitoring,Tay,Targeted Location,Fairly Confident,30000,85000,1
+545,Monitoring,Tay,River,Estimate,10000,15000,1
+546,Monitoring,Tay,River,Fairly Confident,0,5000,1
+547,Monitoring,Tay,Catchment,Estimate,5000,5000,1
+548,Monitoring,Tay,Whole District,Fairly Confident,15000,45000,1
+549,Monitoring,Ugie,Targeted Location,Very Confident,0,7000,1
+550,Monitoring,Urr,Catchment,Fairly Confident,0,1400,1
+551,Monitoring,Urr,Whole District,Fairly Confident,0,3150,1
+552,Monitoring,West Sutherland,Catchment,Estimate,16000,16000,1
+553,Monitoring,West Sutherland,Whole District,Fairly Confident,7000,27000,1
+554,Monitoring,Wester Ross,Targeted Location,,0,NA,1
+555,Monitoring,Wester Ross,Targeted Location,Estimate,5000,6000,1
+556,Monitoring,Wester Ross,Targeted Location,Fairly Confident,0,10000,1
+557,Monitoring,Wester Ross,Coastal,Estimate,2000,2666.666667,3
+558,Monitoring,Wester Ross,Coastal,Fairly Confident,0,11000,1
+559,Monitoring,Wester Ross,River,Estimate,1375,1375,4
+560,Monitoring,Wester Ross,Catchment,,750,1500,2
+561,Monitoring,Wester Ross,Catchment,Estimate,1206.896552,1620.689655,29
+562,Monitoring,Wester Ross,Catchment,Fairly Confident,333.3333333,1666.666667,3
+563,Monitoring,Wester Ross,Catchment,Little Confidence,1000,1000,1
+564,Monitoring,Wester Ross,Catchment,N/A,0,NA,1
+565,Monitoring,Western Isles,Whole District,Very Confident,15748,15748,1
+566,Monitoring,Dee (Kircudbright),Targeted Location,Very Confident,0,2000,1
+567,Peatland Restoration,Annan,Catchment,Fairly Confident,0,1400,1
+568,Peatland Restoration,Ayr,Whole District,Estimate,3.00E+05,3.00E+05,1
+569,Peatland Restoration,Beauly,Catchment,,NA,1400,1
+570,Peatland Restoration,Bladnoch,Targeted Location,Very Confident,5000,7000,2
+571,Peatland Restoration,Brora,Catchment,Fairly Confident,4333.333333,5333.333333,3
+572,Peatland Restoration,Cree,Catchment,Estimate,NA,700,1
+573,Peatland Restoration,Dee (Kircudbright),Targeted Location,Fairly Confident,0,3500,1
+574,Peatland Restoration,Doon,Whole District,Estimate,80000,80000,1
+575,Peatland Restoration,Findhorn,Catchment,Estimate,700,700,1
+576,Peatland Restoration,Findhorn,Catchment,Fairly Confident,20000,20000,1
+577,Peatland Restoration,Findhorn,Whole District,Fairly Confident,4000,8500,1
+578,Peatland Restoration,Fleet (Kircudbright),Targeted Location,Very Confident,5000,6000,2
+579,Peatland Restoration,Forth,Catchment,Estimate,2110000,4220000,1
+580,Peatland Restoration,Irvine and Garnock,Catchment,Estimate,2.00E+06,2005000,1
+581,Peatland Restoration,Kyle of Sutherland,Whole District,Estimate,14500000,3.10E+07,1
+582,Peatland Restoration,Lossie,Catchment,Estimate,350,350,1
+583,Peatland Restoration,Lossie,Whole District,Estimate,20000,20000,1
+584,Peatland Restoration,Luce,Targeted Location,Fairly Confident,0,900,2
+585,Peatland Restoration,Nairn,Catchment,Fairly Confident,NA,NA,1
+586,Peatland Restoration,Nairn,Catchment,N/A,NA,NA,1
+587,Peatland Restoration,Nairn,Whole District,Little Confidence,1000,1000,1
+588,Peatland Restoration,Nith,Whole District,Very Confident,0,20000,1
+589,Peatland Restoration,Stinchar,Whole District,N/A,150000,150000,1
+590,Peatland Restoration,Tay,Catchment,Estimate,2.00E+06,2003500,1
+591,Peatland Restoration,Urr,Catchment,Fairly Confident,0,1750,1
+592,Raising Awareness,Beauly,River,,NA,7000,1
+593,Raising Awareness,Beauly,Catchment,,NA,NA,1
+594,Raising Awareness,Brora,Coastal,N/A,0,NA,1
+595,Raising Awareness,Brora,River,Fairly Confident,0,NA,1
+596,Raising Awareness,Brora,Catchment,N/A,0,NA,1
+597,Raising Awareness,Clyde,Catchment,Very Confident,75000,175000,1
+598,Raising Awareness,Cree,Whole District,N/A,NA,NA,2
+599,Raising Awareness,Cromarty,Targeted Location,Little Confidence,1600,1600,1
+600,Raising Awareness,Cromarty,Whole District,Very Confident,0,30000,1
+601,Raising Awareness,Dee,River,Very Confident,5000,12700,1
+602,Raising Awareness,Dee,Whole District,Fairly Confident,0,9020,1
+603,Raising Awareness,Dee,Whole District,Very Confident,0,3000,1
+604,Raising Awareness,Deveron,Coastal,N/A,0,600,1
+605,Raising Awareness,Deveron,River,Fairly Confident,5000,5000,1
+606,Raising Awareness,Don,River,Very Confident,5000,6312.5,1
+607,Raising Awareness,Don,Whole District,Fairly Confident,0,872.5,1
+608,Raising Awareness,Don,Whole District,Very Confident,0,500,1
+609,Raising Awareness,Eachaig,River,,NA,NA,1
+610,Raising Awareness,Esk,River,N/A,NA,NA,1
+611,Raising Awareness,Esk,Whole District,Very Confident,0,7000,1
+612,Raising Awareness,Findhorn,Whole District,Very Confident,0,50000,1
+613,Raising Awareness,Forth,Catchment,Very Confident,0,250000,1
+614,Raising Awareness,Forth,Whole District,Estimate,10000,20000,1
+615,Raising Awareness,Forth,Whole District,Fairly Confident,45000,80000,1
+616,Raising Awareness,Forth,Whole District,N/A,0,NA,2
+617,Raising Awareness,Laggan and Sorn,River,,NA,7000,1
+618,Raising Awareness,Lochaber,Whole District,N/A,0,NA,1
+619,Raising Awareness,Lossie,Whole District,Very Confident,10000,50000,1
+620,Raising Awareness,Nairn,Whole District,Very Confident,0,50000,1
+621,Raising Awareness,Nith,Whole District,Fairly Confident,55000,110000,1
+622,Raising Awareness,Nith,Whole District,Very Confident,0,23750,2
+623,Raising Awareness,Skye,Whole District,Estimate,0,NA,1
+624,Raising Awareness,Skye,Whole District,Little Confidence,2000,5000,1
+625,Raising Awareness,Skye,Whole District,Very Confident,6000,33000,1
+626,Raising Awareness,Spey,Targeted Location,Fairly Confident,700,700,1
+627,Raising Awareness,Spey,Targeted Location,Very Confident,1700,3900,1
+628,Raising Awareness,Spey,Whole District,Little Confidence,1500,3000,1
+629,Raising Awareness,Spey,Whole District,Very Confident,2500,2500,1
+630,Raising Awareness,Tay,Whole District,Estimate,0,20000,1
+631,Raising Awareness,Tweed,Whole District,Fairly Confident,NA,NA,1
+632,Raising Awareness,West Sutherland,Whole District,Estimate,4500,11000,1
+633,Raising Awareness,West Sutherland,Whole District,Fairly Confident,1500,3500,1
+634,Raising Awareness,Wester Ross,Targeted Location,Estimate,5000,5000,1
+635,Raising Awareness,Wester Ross,Coastal,,0,NA,1
+636,Raising Awareness,Wester Ross,Coastal,Estimate,900,1600,5
+637,Raising Awareness,Wester Ross,Coastal,Fairly Confident,500,500,1
+638,Raising Awareness,Wester Ross,River,Estimate,500,500,1
+639,Raising Awareness,Wester Ross,River,N/A,0,500,1
+640,Raising Awareness,Wester Ross,Catchment,Estimate,1333.333333,1333.333333,3
+641,Raising Awareness,Ythan,Whole District,,NA,3500,2
+642,Controlling Invasive Species,Annan,Catchment,Fairly Confident,16000,22000,1
+643,Controlling Invasive Species,Argyll,Targeted Location,Estimate,10000,10000,2
+644,Controlling Invasive Species,Argyll,River,Estimate,87500,87500,4
+645,Controlling Invasive Species,Argyll,River,Little Confidence,50000,50000,1
+646,Controlling Invasive Species,Ayr,Targeted Location,Very Confident,1000,8000,1
+647,Controlling Invasive Species,Ayr,Whole District,Fairly Confident,156000,321000,1
+648,Controlling Invasive Species,Beauly,Catchment,,NA,600,1
+649,Controlling Invasive Species,Beauly,Whole District,,NA,3516.666667,4
+650,Controlling Invasive Species,Bladnoch,Targeted Location,Very Confident,15000,21000,1
+651,Controlling Invasive Species,Brora,Catchment,Fairly Confident,0,3000,2
+652,Controlling Invasive Species,Clyde,Targeted Location,Estimate,60000,125000,1
+653,Controlling Invasive Species,Cree,River,N/A,NA,NA,1
+654,Controlling Invasive Species,Cromarty,Targeted Location,Estimate,15000,15000,1
+655,Controlling Invasive Species,Cromarty,Targeted Location,Fairly Confident,0,4800,1
+656,Controlling Invasive Species,Cromarty,River,Estimate,0,50000,1
+657,Controlling Invasive Species,Cromarty,River,Fairly Confident,5000,10000,1
+658,Controlling Invasive Species,Cromarty,River,Very Confident,0,35000,1
+659,Controlling Invasive Species,Dee,River,Fairly Confident,30000,63000,1
+660,Controlling Invasive Species,Dee (Kircudbright),River,Fairly Confident,16000,20000,1
+661,Controlling Invasive Species,Deveron,Catchment,Very Confident,0,89621.97,1
+662,Controlling Invasive Species,Don,River,Fairly Confident,30000,33000,1
+663,Controlling Invasive Species,Doon,Targeted Location,Estimate,12000,24000,1
+664,Controlling Invasive Species,Doon,Targeted Location,Little Confidence,8000,9000,1
+665,Controlling Invasive Species,Doon,Whole District,Fairly Confident,43000,83000,1
+666,Controlling Invasive Species,Esk,Whole District,Very Confident,0,7000,1
+667,Controlling Invasive Species,Findhorn,Whole District,Very Confident,0,15000,1
+668,Controlling Invasive Species,Fleet (Kircudbright),Catchment,Very Confident,20000,26000,1
+669,Controlling Invasive Species,Forth,Whole District,Estimate,2290000,4350000,1
+670,Controlling Invasive Species,Girvan,Whole District,Fairly Confident,50000,50000,1
+671,Controlling Invasive Species,Irvine and Garnock,Whole District,Little Confidence,120000,220000,1
+672,Controlling Invasive Species,Kyle of Sutherland,Catchment,,0,NA,1
+673,Controlling Invasive Species,Kyle of Sutherland,Whole District,Fairly Confident,3000,7000,1
+674,Controlling Invasive Species,Loch Lomond,Catchment,Estimate,5000,10000,1
+675,Controlling Invasive Species,Loch Lomond,Catchment,Very Confident,15000,30000,4
+676,Controlling Invasive Species,Lochaber,Whole District,Estimate,5000,15500,1
+677,Controlling Invasive Species,Lochaber,Whole District,N/A,0,7500,1
+678,Controlling Invasive Species,Lossie,Catchment,N/A,NA,NA,1
+679,Controlling Invasive Species,Luce,Targeted Location,Very Confident,24000,30000,1
+680,Controlling Invasive Species,Nairn,Catchment,N/A,NA,NA,1
+681,Controlling Invasive Species,Ness,River,Very Confident,0,5000,2
+682,Controlling Invasive Species,Ness,Catchment,,0,5000,1
+683,Controlling Invasive Species,Ness,Catchment,Very Confident,0,5000,2
+684,Controlling Invasive Species,Ness,Whole District,Very Confident,0,4000,4
+685,Controlling Invasive Species,Nith,Catchment,Fairly Confident,175000,250000,1
+686,Controlling Invasive Species,Nith,Catchment,Very Confident,5000,45000,3
+687,Controlling Invasive Species,Nith,Whole District,Fairly Confident,120000,248000,2
+688,Controlling Invasive Species,Skye,Whole District,Estimate,7000,14000,1
+689,Controlling Invasive Species,Skye,Whole District,Little Confidence,10000,20000,1
+690,Controlling Invasive Species,Spey,River,Fairly Confident,1000,8650,2
+691,Controlling Invasive Species,Spey,Catchment,Very Confident,0,9000,2
+692,Controlling Invasive Species,Spey,Whole District,Fairly Confident,2500,2500,1
+693,Controlling Invasive Species,Spey,Whole District,Very Confident,0,3900,1
+694,Controlling Invasive Species,Stinchar,Whole District,Very Confident,154000,314000,1
+695,Controlling Invasive Species,Tay,Targeted Location,Estimate,50000,55000,1
+696,Controlling Invasive Species,Tay,Catchment,Estimate,52500,83500,2
+697,Controlling Invasive Species,Tay,Whole District,Estimate,0,13500,1
+698,Controlling Invasive Species,Tay,Whole District,Fairly Confident,0,12000,1
+699,Controlling Invasive Species,Ugie,River,Very Confident,0,1000,1
+700,Controlling Invasive Species,Urr,River,Fairly Confident,32000,40000,1
+701,Controlling Invasive Species,West Sutherland,Whole District,,0,NA,1
+702,Controlling Invasive Species,Wester Ross,Catchment,Estimate,0,NA,2
+703,Controlling Invasive Species,Wester Ross,Catchment,Fairly Confident,2000,12000,1
+704,Controlling Invasive Species,Western Isles,Whole District,Very Confident,920,920,1
+705,Controlling Invasive Species,Ythan,Whole District,,NA,9000,1
+706,Research,Annan,Coastal,N/A,NA,NA,1
+707,Research,Bladnoch,Coastal,N/A,0,NA,1
+708,Research,Brora,Coastal,N/A,0,NA,1
+709,Research,Caithness,River,Very Confident,0,NA,1
+710,Research,Cree,Coastal,N/A,NA,NA,1
+711,Research,Cromarty,Targeted Location,Fairly Confident,0,2400,1
+712,Research,Cromarty,Targeted Location,N/A,0,NA,2
+713,Research,Dee (Kircudbright),Coastal,N/A,NA,NA,1
+714,Research,Dee (Kircudbright),River,Very Confident,0,70000,1
+715,Research,Eachaig,River,,NA,NA,1
+716,Research,Fleet (Kircudbright),Coastal,N/A,0,NA,1
+717,Research,Forth,Targeted Location,,0,NA,1
+718,Research,Forth,Targeted Location,Estimate,95000,190000,1
+719,Research,Forth,Coastal,,0,NA,1
+720,Research,Forth,Catchment,,0,NA,1
+721,Research,Forth,Whole District,,0,NA,13
+722,Research,Kyle of Sutherland,Targeted Location,,0,14000,1
+723,Research,Kyle of Sutherland,Catchment,,0,NA,1
+724,Research,Laggan and Sorn,River,,NA,5000,1
+725,Research,Loch Lomond,River,Very Confident,10000,20000,1
+726,Research,Luce,Coastal,N/A,0,NA,1
+727,Research,Ness,Catchment,Estimate,1.00E+05,1.00E+05,1
+728,Research,Nith,Whole District,N/A,0,NA,1
+729,Research,Northern,Whole District,Little Confidence,50000,50000,1
+730,Research,Skye,Coastal,Very Confident,0,5.00E+05,1
+731,Research,Skye,River,Very Confident,0,20000,1
+732,Research,Spey,Targeted Location,Estimate,4500,9000,1
+733,Research,Spey,Targeted Location,Fairly Confident,32750,74500,2
+734,Research,Spey,Targeted Location,Very Confident,10000,38750,2
+735,Research,Spey,Coastal,Fairly Confident,1000,1000,1
+736,Research,Tay,Coastal,Estimate,1.00E+06,1010000,1
+737,Research,Tay,River,Estimate,10000,15000,1
+738,Research,Tweed,River,Fairly Confident,0,25000,1
+739,Research,Tweed,River,Very Confident,0,25825,2
+740,Research,Tweed,Catchment,Very Confident,0,81400,1
+741,Research,Urr,Coastal,N/A,0,NA,1
+742,Research,Wester Ross,Coastal,Fairly Confident,2000,7000,1
+743,Research,Wester Ross,Catchment,Estimate,2000,2000,1
+744,Riparian Tree Planting,Annan,River,Fairly Confident,250000,250000,1
+745,Riparian Tree Planting,Ayr,River,Little Confidence,932000,932000,1
+746,Riparian Tree Planting,Ayr,Catchment,Very Confident,142000,142000,1
+747,Riparian Tree Planting,Bladnoch,River,Fairly Confident,117500,157500,1
+748,Riparian Tree Planting,Brora,Catchment,Fairly Confident,180000,190000,1
+749,Riparian Tree Planting,Clyde,Catchment,Estimate,1.00E+05,205000,1
+750,Riparian Tree Planting,Cromarty,River,Very Confident,0,2000,1
+751,Riparian Tree Planting,Dee,Targeted Location,Very Confident,0,148704,1
+752,Riparian Tree Planting,Dee,Catchment,Estimate,5.00E+06,5.00E+06,1
+753,Riparian Tree Planting,Dee (Kircudbright),River,Very Confident,0,10000,1
+754,Riparian Tree Planting,Don,Catchment,Estimate,5.00E+06,5004250,1
+755,Riparian Tree Planting,Doon,Targeted Location,Estimate,15000,83000,1
+756,Riparian Tree Planting,Doon,Targeted Location,Fairly Confident,35100,71450,2
+757,Riparian Tree Planting,Doon,Targeted Location,Little Confidence,162250,324500,1
+758,Riparian Tree Planting,Doon,Targeted Location,Very Confident,6900,20700,1
+759,Riparian Tree Planting,Doon,Whole District,Fairly Confident,29760,47760,2
+760,Riparian Tree Planting,Doon,Whole District,Very Confident,15847.2,18394.4,5
+761,Riparian Tree Planting,Esk,Catchment,N/A,NA,NA,3
+762,Riparian Tree Planting,Findhorn,Catchment,Fairly Confident,18500000,38620000,1
+763,Riparian Tree Planting,Fleet (Kircudbright),River,Fairly Confident,15000,18000,1
+764,Riparian Tree Planting,Forth,Whole District,N/A,10400000,20600000,1
+765,Riparian Tree Planting,Girvan,Targeted Location,Very Confident,29308.4,33036.4,10
+766,Riparian Tree Planting,Girvan,Catchment,Estimate,54000,108000,1
+767,Riparian Tree Planting,Irvine and Garnock,Catchment,,NA,NA,1
+768,Riparian Tree Planting,Irvine and Garnock,Whole District,Estimate,100250,353250,2
+769,Riparian Tree Planting,Loch Lomond,Catchment,Fairly Confident,325000,328250,2
+770,Riparian Tree Planting,Lochaber,Catchment,N/A,0,NA,1
+771,Riparian Tree Planting,Lossie,Whole District,Estimate,20000,20000,1
+772,Riparian Tree Planting,Luce,River,Fairly Confident,60000,75000,1
+773,Riparian Tree Planting,Nairn,Catchment,N/A,NA,NA,1
+774,Riparian Tree Planting,Ness,River,Estimate,5666.666667,5666.666667,3
+775,Riparian Tree Planting,Ness,River,Fairly Confident,NA,5000,1
+776,Riparian Tree Planting,Ness,River,Very Confident,0,2000,1
+777,Riparian Tree Planting,Ness,Catchment,Fairly Confident,0,1000,1
+778,Riparian Tree Planting,Ness,Catchment,Very Confident,0,2000,1
+779,Riparian Tree Planting,Nith,Whole District,Estimate,3.00E+06,3100000,1
+780,Riparian Tree Planting,Northern,Catchment,Estimate,NA,NA,1
+781,Riparian Tree Planting,Skye,Catchment,N/A,50000,1.00E+05,3
+782,Riparian Tree Planting,Spey,River,Little Confidence,16666.66667,723333.3333,3
+783,Riparian Tree Planting,Stinchar,Targeted Location,Fairly Confident,50426.66667,50426.66667,6
+784,Riparian Tree Planting,Stinchar,Targeted Location,N/A,0,NA,2
+785,Riparian Tree Planting,Stinchar,Targeted Location,Very Confident,47963.2,47963.2,10
+786,Riparian Tree Planting,Stinchar,River,Estimate,277550,780550,2
+787,Riparian Tree Planting,Stinchar,Catchment,Estimate,3000,4000,1
+788,Riparian Tree Planting,Stinchar,Catchment,N/A,NA,NA,1
+789,Riparian Tree Planting,Stinchar,Catchment,Very Confident,73320,73320,1
+790,Riparian Tree Planting,Tay,Catchment,Estimate,1.00E+06,1040000,1
+791,Riparian Tree Planting,Tweed,Targeted Location,Very Confident,0,5000,1
+792,Riparian Tree Planting,Tweed,Whole District,N/A,NA,5.00E+05,1
+793,Riparian Tree Planting,Tweed,Whole District,Very Confident,0,4000,1
+794,Riparian Tree Planting,Ugie,Catchment,Estimate,2000,4000,1
+795,Riparian Tree Planting,Urr,River,Fairly Confident,20000,30000,1
+796,Riparian Tree Planting,West Sutherland,Whole District,,0,NA,1
+797,Stocking,Bladnoch,Targeted Location,Fairly Confident,0,2000,1
+798,Stocking,Cree,Targeted Location,N/A,NA,NA,1
+799,Stocking,Cromarty,Coastal,N/A,0,NA,1
+800,Stocking,Eachaig,River,,NA,NA,1
+801,Stocking,Helmsdale,Whole District,,NA,20000,1
+802,Stocking,Laggan and Sorn,River,,NA,10000,1
+803,Stocking,Nith,Targeted Location,Very Confident,0,50000,1
+804,Stocking,Skye,River,Little Confidence,195000,450000,1
+805,Stocking,Spey,Targeted Location,Little Confidence,3.00E+05,420000,1
+806,Stocking,Spey,Whole District,Very Confident,60000,120000,1
+807,Stocking,Tay,River,Fairly Confident,0,65000,3
+808,Stocking,Ugie,Targeted Location,N/A,0,NA,1
+809,Stocking,Wester Ross,Coastal,,0,NA,1
+810,Stocking,Wester Ross,River,Estimate,2000,2000,1
+811,Water Flow Management,Annan,River,Fairly Confident,0,1050,1
+812,Water Flow Management,Argyll,River,Little Confidence,20000,20000,6
+813,Water Flow Management,Ayr,Targeted Location,Estimate,804000,1608000,1
+814,Water Flow Management,Beauly,River,,NA,500,1
+815,Water Flow Management,Beauly,Catchment,,NA,1400,1
+816,Water Flow Management,Bladnoch,Targeted Location,Fairly Confident,0,700,1
+817,Water Flow Management,Bladnoch,River,N/A,0,NA,1
+818,Water Flow Management,Brora,Targeted Location,N/A,0,NA,1
+819,Water Flow Management,Clyde,Catchment,Estimate,65000,135000,1
+820,Water Flow Management,Dee,Targeted Location,Very Confident,0,297408,1
+821,Water Flow Management,Dee,Catchment,Estimate,5.00E+06,5.00E+06,1
+822,Water Flow Management,Dee (Kircudbright),River,Fairly Confident,0,2000,1
+823,Water Flow Management,Don,Catchment,Estimate,5.00E+06,5004250,1
+824,Water Flow Management,Doon,Whole District,N/A,NA,NA,1
+825,Water Flow Management,Findhorn,Catchment,N/A,NA,NA,1
+826,Water Flow Management,Findhorn,Whole District,N/A,NA,NA,2
+827,Water Flow Management,Forth,River,Estimate,15000,20000,1
+828,Water Flow Management,Forth,Catchment,Estimate,2110000,4220000,1
+829,Water Flow Management,Forth,Whole District,N/A,0,NA,2
+830,Water Flow Management,Lossie,Catchment,N/A,NA,NA,1
+831,Water Flow Management,Lossie,Whole District,N/A,NA,NA,2
+832,Water Flow Management,Nairn,Catchment,N/A,NA,NA,1
+833,Water Flow Management,Nairn,Whole District,N/A,NA,NA,2
+834,Water Flow Management,Ness,River,Estimate,20400,20400,5
+835,Water Flow Management,Ness,River,N/A,NA,NA,1
+836,Water Flow Management,Ness,Catchment,Estimate,80000,80000,3
+837,Water Flow Management,Spey,Targeted Location,Estimate,1.00E+06,1005000,1
+838,Water Flow Management,Spey,River,Estimate,1.00E+05,120000,1
+839,Water Flow Management,Tay,Targeted Location,N/A,NA,3500,1
+840,Water Flow Management,Tay,River,Estimate,NA,503000,1
+841,Water Flow Management,Tay,Catchment,Estimate,0,2000,1
+842,Water Flow Management,Tweed,River,N/A,NA,NA,1
+843,Engaging with Consultations,Caithness,Whole District,N/A,0,2666.666667,3

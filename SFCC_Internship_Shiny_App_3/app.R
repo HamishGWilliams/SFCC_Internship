@@ -29,6 +29,8 @@ load_and_convert_data <- function(file_path) {
   
   data$Proposed.Management.Action <- as.factor(data$Proposed.Management.Action)
   data$District <- as.factor(data$District)
+  data$Scale <- as.factor(data$Scale)
+  data$Costing.Certainty <- as.factor(data$Costing.Certainty)
   
   # Convert to numeric and handle potential NAs or empty columns
   data$Average_Funding_Shortfall <- as.numeric(as.character(data$Average_Funding_Shortfall))
@@ -51,11 +53,10 @@ load_and_convert_data <- function(file_path) {
 }
 
    # Load your data outside of the server function ----
-district_averages_scale_1 <- load_and_convert_data("./data/district_averages_scale_1.csv")
-district_averages_scale_2 <- load_and_convert_data("./data/district_averages_scale_2.csv")
-district_averages_scale_3 <- load_and_convert_data("./data/district_averages_scale_3.csv")
-district_averages_scale_4 <- load_and_convert_data("./data/district_averages_scale_4.csv")
-district_averages_scale_5 <- load_and_convert_data("./data/district_averages_scale_5.csv")
+getwd()
+#calculated_averages <- load_and_convert_data("./SFCC_Internship_SHiny_App_3/data/calculated_averages.csv")
+calculated_averages <- load_and_convert_data("./data/calculated_averages.csv")
+
 
 
 # Define UI for application ----
@@ -179,46 +180,36 @@ div(class = "tabset-panel-centered",
                               img(src = 'https://fms.scot/wp-content/uploads/2021/11/Leaping-Salmon-Sean-Dugan.gif', height = '250px'),
                ))
              ),
-             
-             div(class = "center-text",
-                 h2("Data Information")
-             ),
-             
-             div(class = "center-text",
-                 h3("Scale")
-             ),
-             
-             div(class = "spacer left-align-center", # Container for paragraphs
-                 p("Scale refers to the geographical scale or relative size of
-                 the proposed management action, which ranges from specific places
-                 through to the whole district. A summary of each scale is given below:
-                   ")
-             ),
-             
-             # Bullet-pointed section
-             div(class = "left-align-center",
-             tags$ul(
-                 tags$li(strong("Targeted Location:"), "For
-                         actions which are in a specific location.
-                         "),
-                 tags$li(strong("Coastal:"), "Coastal refers to actions pertaining
-                         to coastal zones.
-                         "),
-                 tags$li(strong("River:"), "River refers to actions taking place 
-                         over the majority or the whole of a watercourse.
-                         "),
-                 tags$li(strong("Catchment:"), "Refers to actions whic take place 
-                 over an entire catchment within a district.
-                         "),
-                 tags$li(strong("Whole District:"), "For actions which occur across
-                 the entirity of a district.
-                         ")
-               )
-             )
     ),
     
     # How to use app page ----
-    tabPanel("How to use the app", h3("How to use the app Content")),
+    tabPanel("How to use the app", 
+             div(class = "center-text",
+                 h3("How to use the app Content"
+                    )),
+             
+             div(class = "spacer left-align-center", # Container for paragraphs
+                 p("Using the app is accessible and intuitive. There is a side-panel 
+                   contains options for subsetting and curating the data into 
+                   the specific confidences/scale/actions/districts that the user 
+                   wishes to visualise."),
+                 p("There is an 'Update Plots' button which is used to submit 
+                   the selections to the plots. This is primarily done to reduce 
+                   the number of 'updates' which the app must complete when 
+                   selecting a number of options in quick succession."),
+                 p("There is a number of selections for different plots also. 
+                   These include boxplots for both Actions and Districts, as well 
+                   as barplot of the 'counts' of datapoints contributing to the 
+                   average values calculated for each action and district under the 
+                   selected options. This is primarily used to understand how 
+                   representative the range of values and the average value of 
+                   each boxplot is of a given action under the selected options.")
+             ),
+          
+             
+             
+             
+             ),
     
     # Funding Shortfall App ----
     tabPanel("Funding Shortfall App",
@@ -237,24 +228,38 @@ div(class = "tabset-panel-centered",
                  
                  
                  # Selection of which data you want to use:
-                 selectInput("selected_df", "Choose a Scale:",
-                             choices = list("Scale 1" = "district_averages_scale_1",
-                                            "Scale 2" = "district_averages_scale_2",
-                                            "Scale 3" = "district_averages_scale_3",
-                                            "Scale 4" = "district_averages_scale_4",
-                                            "Scale 5" = "district_averages_scale_5")),
+                 
+                 selectInput("Costing.Certainty", "Select costing certainty:",
+                             choices = NULL,
+                             selected = NULL,
+                             multiple = TRUE),
+                 div(class = "spacer centered",
+                    actionButton("select_all_costing", "Select All Costing Certainty")
+                    ),
+                 
+                 selectInput("Scale", "Select scale:",
+                             choices = NULL,
+                             selected = NULL,
+                             multiple = TRUE),
+                 div(class = "spacer centered",
+                    actionButton("select_all_scale", "Select All Scales")
+                    ),
                  
                  selectInput("Proposed.Management.Action", "Select Proposed Management Actions:",
                              choices = NULL,
                              selected = NULL,
                              multiple = TRUE),
+                 div(class = "spacer centered",
+                     actionButton("select_all_actions", "Select All Actions")
+                 ),
                  
                  selectInput("District", "Select District:",
                              choices = NULL,
                              selected = NULL,
                              multiple = TRUE),
-                 
-                 
+                 div(class = "spacer centered",
+                     actionButton("select_all_districts", "Select All Districts")
+                 ),
                  
                  # Button to Update plots on demand:
                  div(class = "spacer",
@@ -317,7 +322,23 @@ div(class = "tabset-panel-centered",
     
     
     # SFCC internship information page ----
-    tabPanel("SFCC Internship", h3("Acknowledgements Content")
+    tabPanel("SFCC Internship", 
+             div(class = "center-text",
+                 h3("About this work")
+                 ),
+             
+             div(class = "left-align-center",
+                 p("This work was completed as part of a University of Aberdeen 
+                   funded internship. The candidate (Hamish Williams) completed 
+                   this work over the course of five weeks."),
+                 p("Hamish - 'I have found this internship deeply fulfilling, 
+                   and it has exposed me to new experiences, as well as a new 
+                   qualification in electrofishing. The SFCC has provided me 
+                   an amazing opporutnity to contribute to their work, and speak 
+                   to people who are making the difference in Scottish Salmon 
+                   Conservation across Scotland."),
+             ),
+          
              ),
   
   # Data Dictionary ----
@@ -487,19 +508,19 @@ server <- function(input, output, session) {
     )
   })
 
-  # Select which scale of data to use:
-  selectedData <- reactive({
-    switch(input$selected_df,
-           "district_averages_scale_1" = district_averages_scale_1,
-           "district_averages_scale_2" = district_averages_scale_2,
-           "district_averages_scale_3" = district_averages_scale_3,
-           "district_averages_scale_4" = district_averages_scale_4,
-           "district_averages_scale_5" = district_averages_scale_5)
-  })
-  
   # Now add in the reactive elements for the different action/district choices:
   observe({
-    data <- selectedData()
+    data <- calculated_averages
+    
+    # Action Costing certainty:
+    updateSelectInput(session, 
+                      "Costing.Certainty", 
+                      choices = unique(data$Costing.Certainty))
+    # Action Choices:
+    updateSelectInput(session, 
+                      "Scale", 
+                      choices = unique(data$Scale))
+    
     # Action Choices:
     updateSelectInput(session, 
                       "Proposed.Management.Action", 
@@ -511,9 +532,11 @@ server <- function(input, output, session) {
   })
   
   filtered_data_action_by_district <- eventReactive(input$update, {
-    data <- selectedData()
+    data <- calculated_averages
     data %>%
       filter(
+        Costing.Certainty %in% input$Costing.Certainty,
+        Scale %in% input$Scale,
         Proposed.Management.Action %in% input$Proposed.Management.Action,
         District %in% input$District
       )
@@ -527,6 +550,7 @@ server <- function(input, output, session) {
     ggplot(data_action, aes(x = Proposed.Management.Action, y = Average_Funding_Shortfall)) +
       geom_boxplot(alpha = 0.3) +
       theme_bw() +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
       labs(
         title = "Boxplot by Proposed Management Action", 
         x = "Proposed.Management.Action", 
@@ -593,12 +617,35 @@ server <- function(input, output, session) {
                             col = District)) +
       geom_boxplot(alpha = 0.3) +
       theme_bw() +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
       labs(
         title = "Boxplot by Proposed Management Action", 
         x = "Proposed.Management.Action", 
         y = "Funding Shortfall"
       )
   })
+  
+  # Observe "Select All" button click events for each selectInput
+  observeEvent(input$select_all_costing, {
+    data <- calculated_averages
+    updateSelectInput(session, "Costing.Certainty", selected = unique(data$Costing.Certainty))
+  })
+  
+  observeEvent(input$select_all_scale, {
+    data <- calculated_averages
+    updateSelectInput(session, "Scale", selected = unique(data$Scale))
+  })
+  
+  observeEvent(input$select_all_actions, {
+    data <- calculated_averages
+    updateSelectInput(session, "Proposed.Management.Action", selected = unique(data$Proposed.Management.Action))
+  })
+  
+  observeEvent(input$select_all_districts, {
+    data <- calculated_averages
+    updateSelectInput(session, "District", selected = unique(data$District))
+  })
+  
   
 # 
 # End of server code
