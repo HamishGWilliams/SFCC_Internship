@@ -34,6 +34,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r load_packages}
 # Example of package installation
   # install.packages("ggplot2")
+# install.packages("writexl")
+# install.packages("openxlsx")
+# install.packages("cowplot")
 
 # Load the packages
 library(dplyr)
@@ -41,6 +44,10 @@ library(ggplot2)
 library(shiny)
 library(here)
 library(rsconnect)
+library(writexl)
+library(openxlsx)
+library(cowplot)
+library(gridExtra)
 ```
 
 ```{r custom_functions}
@@ -52,11 +59,18 @@ calculate_means <- function(data, scale) {
     mutate(scale = scale)
 }
 
+calculate_Funding.Shortfall_means_district <- function(data, District) {
+  data %>%
+    group_by(Proposed.Management.Action) %>%
+    summarize(average_cost = mean(Funding.Shortfall, na.rm = TRUE)) %>%
+    mutate(District = District)
+}
+
 ```
 
 # Excel work
 
-A key issue exists with the raw excel data, which is that where and what the funding shortfall is based on is ambiguous. At times it seems to reflect the captial costings, the in-kind contributions, the annual costs, or even all 3 combined, whereas at othertimes it exists externally to the costings, and is what I would call a "True" shortfall; Which is to say that the shortfall given is not tied directly to the costings variables.
+A key issue exists with the raw excel data, which is that where and what the funding shortfall is based on is ambiguous. At times it seems to reflect the capital costings, the in-kind contributions, the annual costs, or even all 3 combined, whereas at other times it exists externally to the costings, and is what I would call a "True" shortfall; Which is to say that the shortfall given is not tied directly to the costings variables.
 
 To compensate for this, an idea was proposed and reviewed by Sean, which is to devise a method to determine the likelihood that the funding shortfall is representative of the costings or not, and based on this combine all of the costings and shortfalls together to make a representative value for the total cost of the action.
 
@@ -136,6 +150,10 @@ The next step was to try and create some summary data of the costings, and to il
 ```{r import_data}
 # Import Data
 data <- read.csv("../data/Fishery_Management_Plan_Actions_Working_Sheet.csv", header = T)
+wb <- createWorkbook()
+addWorksheet(wb, "Sheet1")
+writeData(wb, sheet = "Sheet1", x = data)
+saveWorkbook(wb, "Fishery_Management_Plan_Actions_Working_Sheet_Data.xlsx", overwrite = TRUE)
 
 # Change data type of relevant variables
 str(data)
@@ -166,6 +184,107 @@ data_scale_4 <- data_subset[data_subset$Scale == "4",]
 str(data_scale_4)
 data_scale_5 <- data_subset[data_subset$Scale == "5",]
 str(data_scale_5)
+
+# for each scale, calculate the means of funding shortfall per district:
+
+# Define the expanded function with checks for column existence
+calculate_funding_shortfall_by_district_and_action <- function(data) {
+  # Calculate the average values for Funding.Shortfall and Filtered_Costings_Data for each District and Proposed.Management_Action
+  averages <- data %>%
+    group_by(Proposed.Management.Action, District) %>%
+    summarize(
+      Average_Funding_Shortfall = mean(Funding.Shortfall, na.rm = TRUE),
+      Average_Filtered_Costings_Data = mean(Filtered_Costings_Data, na.rm = TRUE),
+      Count = n()
+    )
+  
+  return(averages)
+}
+data_scale_1$Proposed.Management.Action
+# Calculate the averages
+
+# Scale 1
+district_averages_scale_1 <- calculate_funding_shortfall_by_district_and_action(data_scale_1)
+district_averages_scale_1$District <- as.factor(district_averages_scale_1$District)
+
+par(mfrow = c(2,1))
+
+plot(district_averages_scale_1$District, district_averages_scale_1$Average_Funding_Shortfall, 
+     main = "Districts ~ Funding Shortfall (Scale 1)", 
+     xlab = "", 
+     ylab = "Average Funding Shortfall (£)",
+     cex.axis = 0.7,
+     las = 3,
+     cex.main = 0.8)
+
+plot(district_averages_scale_1$Proposed.Management.Action, district_averages_scale_1$Average_Funding_Shortfall, 
+     main = "Actions ~ Funding Shortfall (Scale 1)", 
+     xlab = "Proposed Management Actions", 
+     ylab = "Average Funding Shortfall (£)",
+     cex.axis = 0.7,
+     cex.main = 0.8)
+
+par(mfrow = c(1,1))
+
+ggplot(district_averages_scale_1, aes(x = Proposed.Management.Action, y = Count)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Count of Actions (Very Confident @ Scale = 1)",
+       x = "Proposed Management Action",
+       y = "Count") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 0)) +
+  scale_x_discrete(drop = FALSE) +
+  scale_fill_discrete(name = "Action")
+
+ggplot(district_averages_scale_1, aes(x = District, y = Count)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Count of Actions for per district (Very Confident @ Scale = 1)",
+       x = "District",
+       y = "Count") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_x_discrete(drop = FALSE) +
+  scale_fill_discrete(name = "Action")
+
+
+# Looks like the Forth has a very high average funding shortfall compared to others
+  # built from 2 separate actions 
+
+# Scale 2
+district_averages_scale_2 <- calculate_funding_shortfall_by_district_and_action(data_scale_2)
+
+district_averages_scale_2$District <- as.factor(district_averages_scale_2$District)
+
+plot(district_averages_scale_2$Proposed.Management.Action, district_averages_scale_2$Average_Funding_Shortfall)
+
+plot(district_averages_scale_2$District, district_averages_scale_2$Average_Funding_Shortfall)
+# Very few action points @ scale 2
+
+# Scale 3
+district_averages_scale_3 <- calculate_funding_shortfall_by_district_and_action(data_scale_3)
+
+district_averages_scale_3$District <- as.factor(district_averages_scale_3$District)
+
+par(mfrow = c(2,1))
+plot(district_averages_scale_3$Proposed.Management.Action, district_averages_scale_3$Average_Funding_Shortfall, main = "Actions ~ Funding Shortfall (Scale 3)", xlab = "Proposed Management Actions", ylab = "Average Funding Shortfall (£)")
+
+plot(district_averages_scale_3$District, district_averages_scale_3$Average_Funding_Shortfall, main = "Districts ~ Funding Shortfall (Scale 3)", xlab = "Districts", ylab = "Average Funding Shortfall (£)")
+
+par(mfrow = c(1,1))
+
+# SCale 4
+district_averages_scale_4 <- calculate_funding_shortfall_by_district_and_action(data_scale_4)
+district_averages_scale_5 <- calculate_funding_shortfall_by_district_and_action(data_scale_5)
+
+#  Write all of the new datafiles to objects:
+getwd()
+
+write.csv(district_averages_scale_1, "./data/district_averages_scale_1.csv")
+write.csv(district_averages_scale_2, "./data/district_averages_scale_2.csv")
+write.csv(district_averages_scale_3, "./data/district_averages_scale_3.csv")
+write.csv(district_averages_scale_4, "./data/district_averages_scale_4.csv")
+write.csv(district_averages_scale_5, "./data/district_averages_scale_5.csv")
+
 ```
 
 ```{r boxplots_1}
@@ -224,6 +343,11 @@ all_actions <- expand.grid(
 # Merge to ensure all actions are present, filling with NA where no data is available
 results_full <- merge(all_actions, results, by = c("scale", "Proposed.Management.Action"), all.x = TRUE)
 write.csv(results_full, file = "../results/average_spending_results.csv")
+
+wb <- createWorkbook()
+addWorksheet(wb, "Sheet1")
+writeData(wb, sheet = "Sheet1", x = results_full)
+saveWorkbook(wb, "./results/average_spending_results.xlsx", overwrite = TRUE)
 ```
 
 ```{r plot_data}
@@ -262,3 +386,387 @@ What might be or more value to these plots is to further investigate the distrib
 Another observation is that there are a number of actions with little to no data points. Which is to say, that it is difficult to determine what their "likely average" costs are due to insufficient data present at the time. Given the fact that there is quite a range of costs for any given action (at each scale and also at each confidence - which is not shown at this time), which gives me cause for concern about trying to apply average values from these low sample data variables to provide "better" estimates for actions with lower estimate confidences.
 
 That isn't to say that these CANT be utilized, but if they are, they should be done with the consideration that there is possibilities that they may not be any more effective at estimate the total costs of a given action than professional opinion from contractors or inside personalle with experience in the managements, executions and therefore the costings of management actions.
+
+Notes from meeting (05/07/24):
+
+\* look at how different districts "use" the funding shortfall variable
+
+\* Add in selections or costing confidences for 2nd shiny app, and maybe even district
+
+\* Focus more next week on the funding shortfall variable, don't worry too much about what and how it represents the funding shortfall
+
+\* Look at back-calculating the 0 values in the funding shortfalls
+
+```         
+- considerations for instances where there isn't data for the shortfall \@ the scale, do I use different scale values?
+
+- Create a range (+ £10,000 from average estimate to top value)
+
+- Make a note of which actions you feel more, less, not confident about the average values
+
+- make the confidence based on the count of the actions used to calculate the average
+```
+
+\* Tuesday field-day
+
+```         
+- Pamala & Sam
+
+- sT PETERS HERITAGE CENTRE - Peterculter
+
+    - Look for buses to Peterculter
+
+- 9:30am meet-up at the heritage centre
+
+- Full day, 4 sites, bring a lunch and water
+```
+
+# Part 2 - Focusing on Funding Shortfall
+
+So initially I was working a lot on trying to create a new variable as I was coming to grips with understanding what exactly the "Funding shortfall" and "costings" variables were actually representative of.
+
+I made a shiny app to run this (which still seems to not be working at this time for some reason - and I'm probably unlikely to come back to this app since I have just developed a better one.). However, when I had a discussion with sean at our latest meeting, we both seemed to have issues understanding what the funding shortfall actually represents, and it seemed that my understanding that it could be reflective of 2 different scenarios (but not specified which it could be) may have been a misunderstanding, and that the issue I was raising was not of precident at the moment. 
+
+We decided that I would focus my efforts back to just the funding shortfall (trying not too hard to worry about it still!), and to come up with a table or set of results which could represent the average values for actions at very confident status at the different scales - initially focusing on scale 1, but still allowing some room to consider the other scales. This would also include work to understand how the districts played a part in these funding shortfalls, and if any specific district had tended to have relatively high funding shortfalls compared to others.
+
+The main goals thus have become:
+  - To explore the funding shortfall variable
+  - To create a set of results which contain the average funding shortfalls for the different actions at the different scales
+  - To understand how representative these average values are of the whole distribution
+  To generate a new Shiny app which could be used to interactively display and visually show the data.
+  
+Lets start by re-loading the data we used, just to help with flow and understanding the process that was undertaken:
+
+```{r Part_2_Import_Data}
+# Import Data
+data <- read.csv("../data/Fishery_Management_Plan_Actions_Working_Sheet.csv", header = T)
+wb <- createWorkbook()
+addWorksheet(wb, "Sheet1")
+writeData(wb, sheet = "Sheet1", x = data)
+saveWorkbook(wb, "Fishery_Management_Plan_Actions_Working_Sheet_Data.xlsx", overwrite = TRUE)
+
+# Change data type of relevant variables
+str(data)
+data$Proposed.Management.Action <- as.factor(data$Proposed.Management.Action)
+data$Scale <- as.factor(data$Scale)
+data$Proposed.Management.Action <- as.factor(data$Proposed.Management.Action)
+data$Maintainance.Required <- as.factor(data$Maintainance.Required)
+data$Funding.Available <- as.factor(data$Funding.Available)
+data$Funding_Status_TRUE <- as.factor(data$Funding_Status_TRUE)
+data$Maintainance.Required <- as.factor(data$Maintainance.Required)
+data$Costing.Certainty <- as.factor(data$Costing.Certainty)
+```
+
+Now that  have imported the data again, we are going to subset the data to only include values which are "Very Confident":
+
+```{r Very_Confident_Subset}
+# Subset to very confident funding shortfall data
+data_subset <- data[data$Costing.Certainty == "Very Confident",]
+# Save this subsetted dataframe to a new file for use.
+write.csv(data_subset, file = "../results/SFCC_VC_Subset.csv")
+```
+
+We save the data here just because it might be useful to have a separate data file which is only the very confident data.
+
+Now I'll look to create separate datafiles which contain only the data for the different levels of scale. If I want to go back get the other confidence intervals then I can, but since we are only concerning ourselves with the very confident values for now, then I'm going to subset for that. I'm separating them based on scale to make it easier to work with the data later in the shiny app, as its relatively easy enough to merge the rows if needed at a later point:
+
+```{r Subsetting_Scales}
+# subset data to relevant scales for investigation: 
+data_scale_1 <- data_subset[data_subset$Scale == "1",]
+str(data_scale_1)
+data_scale_2 <- data_subset[data_subset$Scale == "2",]
+str(data_scale_2)
+data_scale_3 <- data_subset[data_subset$Scale == "3",]
+str(data_scale_3)
+data_scale_4 <- data_subset[data_subset$Scale == "4",]
+str(data_scale_4)
+data_scale_5 <- data_subset[data_subset$Scale == "5",]
+str(data_scale_5)
+```
+
+We can then perform some functions in order to calculate the average values for funding shortfall based on the district and actions
+
+```{r calculating_means}
+## Define the expanded function with checks for column existence
+calculate_funding_shortfall_by_district_and_action <- function(data) {
+  # Calculate the average values for Funding.Shortfall and Filtered_Costings_Data for each District and Proposed.Management_Action
+  averages <- data %>%
+    group_by(Proposed.Management.Action, District) %>%
+    summarize(
+      Average_Funding_Shortfall = mean(Funding.Shortfall, na.rm = TRUE), # Average Funding Shortall
+      Average_Filtered_Costings_Data = mean(Filtered_Costings_Data, na.rm = TRUE), # Average the costings data I made
+      Count = n() # calculate the number of values used to generate the average
+    )
+  return(averages)
+}
+
+## Calculate the averages
+# Scale 1
+district_averages_scale_1 <- calculate_funding_shortfall_by_district_and_action(data_scale_1)
+district_averages_scale_1$District <- as.factor(district_averages_scale_1$District) # Need to change this to factor since it was causing issues with creating plots
+# Scale 2
+district_averages_scale_2 <- calculate_funding_shortfall_by_district_and_action(data_scale_2)
+district_averages_scale_2$District <- as.factor(district_averages_scale_2$District)
+# Scale 3
+district_averages_scale_3 <- calculate_funding_shortfall_by_district_and_action(data_scale_3)
+district_averages_scale_3$District <- as.factor(district_averages_scale_3$District)
+# Scale 4
+district_averages_scale_4 <- calculate_funding_shortfall_by_district_and_action(data_scale_4)
+# Scale 5
+district_averages_scale_5 <- calculate_funding_shortfall_by_district_and_action(data_scale_5)
+
+## Write the files and save them for use in app:
+write.csv(district_averages_scale_1, "./data/district_averages_scale_1.csv")
+write.csv(district_averages_scale_2, "./data/district_averages_scale_2.csv")
+write.csv(district_averages_scale_3, "./data/district_averages_scale_3.csv")
+write.csv(district_averages_scale_4, "./data/district_averages_scale_4.csv")
+write.csv(district_averages_scale_5, "./data/district_averages_scale_5.csv")
+```
+
+```{r Plotting_Averages}
+# Scale 1
+par(mfrow = c(2,1))
+
+plot(district_averages_scale_1$District, district_averages_scale_1$Average_Funding_Shortfall, 
+     main = "Districts ~ Funding Shortfall (Scale 1)", 
+     xlab = "", 
+     ylab = "Average Funding Shortfall (£)",
+     cex.axis = 0.7,
+     las = 3,
+     cex.main = 0.8)
+
+plot(district_averages_scale_1$Proposed.Management.Action, district_averages_scale_1$Average_Funding_Shortfall, 
+     main = "Actions ~ Funding Shortfall (Scale 1)", 
+     xlab = "Proposed Management Actions", 
+     ylab = "Average Funding Shortfall (£)",
+     cex.axis = 0.7,
+     cex.main = 0.8)
+
+par(mfrow = c(1,1))
+
+## These plots ar quite nice, I like them a lot and they provide a lot of information that is useful. We can clearly see that the Forth district is responsible for the 2 largest shortfall values in the bottom plot, and that all the others seem to range from 0 - £50,000 at the highest points. What is causing this large shortfall in the Forth is unknown at this time, but should be investigated further. It seems isolated to actions D and B, so perhaps the expanded definitions of these actions could provide insight into how they contribute to the significantly higher shortfall values.
+```
+
+Although the plots above are useful and will be used, an issue remains that we don't know how representative these boxes are for each action @ scale & @ Very confident status. That is why I included a calculation for counting the number of values (rows) used to calculate the averages for each action at each district, so that we can better understand how they represent the "real" average values of the funding shortfalls.
+
+```{r barplot_of_counts}
+## Barplots for both the actions and the districts
+# Build plots
+district_averages_scale_1_action_barplot <- ggplot(district_averages_scale_1, aes(x = Proposed.Management.Action, y = Count)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Count of Actions (Very Confident @ Scale = 1)",
+       x = "Proposed Management Action",
+       y = "Count") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 0)) +
+  scale_x_discrete(drop = FALSE) +
+  scale_fill_discrete(name = "Action")
+
+district_averages_scale_1_district_barplot <- ggplot(district_averages_scale_1, aes(x = District, y = Count)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Count of Actions for per district (Very Confident @ Scale = 1)",
+       x = "District",
+       y = "Count") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_x_discrete(drop = FALSE) +
+  scale_fill_discrete(name = "Action")
+
+# Arrange and pint plots
+grid.arrange(district_averages_scale_1_action_barplot,
+             district_averages_scale_1_district_barplot,
+             nrow = 2)
+```
+
+What might be more uesful however, is to visualise how the barplots and boxplots look side by side for both action and districts:
+
+```{r}
+## Plot boxplot and barplots together
+# Actions
+action_boxplot_scale_1 <- ggplot(district_averages_scale_1, 
+       aes(x = Proposed.Management.Action,
+           y = Average_Funding_Shortfall)) + 
+  geom_boxplot() + 
+    labs(title = "Average FUnding Shortfall per Action",
+       x = "Proposed Management Action",
+       y = "Funding Shortfall (£)") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 0)) +
+  scale_x_discrete(drop = FALSE)
+
+district_averages_scale_1_action_barplot <- ggplot(district_averages_scale_1, aes(x = Proposed.Management.Action, y = Count)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Count of Actions (Very Confident @ Scale = 1)",
+       x = "Proposed Management Action",
+       y = "Count") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 0)) +
+  scale_x_discrete(drop = FALSE) +
+  scale_fill_discrete(name = "Action")
+
+grid.arrange(action_boxplot_scale_1,
+             district_averages_scale_1_action_barplot,
+             nrow = 2)
+
+## We can clearly see some actions which do not have many (or no) data for them at all for the scale, confidence and action. It would be pretty safe to say that for action B, that we can be fairly confident that the average value of the shortfall is representative aside from the one outlier which exists from the Forth district. Some of the other actions with potentiallt fairly representative averages are F, L, G & Q. 
+
+## This really helps when trying to consider how representative the averages are to the actions, and highlights that in many cases, we don't have a lot of data to make a fair assessment that the average will be representative for he purposes it is used for.
+
+## With this alone, we can start to summise that its likely that some action points cannot have a fair back-calculation of what the shortfalls will be, since we lack the data to assuringly say so.
+
+## Another point which I want to observe about the purpose of the funding shortfall in this internship, is that not all individual actions in the same category will have the same shortfall, as some districts might already have access to better funding to others. Thus, I would reiterate that it would be better to get an average costing of a given action point in its totality (including capital and in-kind costs), with a secondary costings to account for the the potential maintenance costs which will occur annually. With this, we could better provide districts with estimates of what an action would cost. 
+
+## HOweverm if the interest is to understand which actions and districts possess the greatest shortfalls, or are lacking in funding consistently, and to what extent, then the purposes of these analyses and better justified.
+
+### NOTE: The comments given above are for primarily my opinions and thoughts as I come to understand what the potential use cases and purposes of my analyses would be applicable to, and are not reflections of me trying to undermine the purpose of the work. 
+
+# Districts
+district_boxplot_scale_1 <- ggplot(district_averages_scale_1, 
+       aes(x = District,
+           y = Average_Funding_Shortfall)) + 
+  geom_boxplot() + 
+    labs(title = "Average Funding Shortfall per District",
+       x = "District",
+       y = "Funding Shortfall (£)") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_x_discrete(drop = FALSE)
+
+district_averages_scale_1_district_barplot <- ggplot(district_averages_scale_1, aes(x = District, y = Count)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Count of Actions for per district",
+       x = "District",
+       y = "Count") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_x_discrete(drop = FALSE) +
+  scale_fill_discrete(name = "Action")
+
+grid.arrange(district_boxplot_scale_1,
+             district_averages_scale_1_district_barplot,
+             nrow = 2)
+
+## From these figures we can see that there are a lot of actions given to the Girvan, Irvine & Garnock, and the Stinchar districts, of which actions I am not sure at this moment, I can create an independent plot for this if it is of value.
+
+ggplot(district_averages_scale_1, aes(x = District, y = Count)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_identity() + 
+  labs(title = "Count of Actions for per district",
+       x = "District",
+       y = "Count") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  facet_wrap(~Proposed.Management.Action, scale = "free_x")
+
+## Plotting this, we get a better idea of what maes up each district in terms of their actions @ scale 1 & @ very confident assessments of funding shortfalls. We can wee that action be has the most diversity in terms of districts, whith many other actions only being found in a few districts. Irvine & Garnock seem to have the most instances of action B @ present, and then Girvan and stinchar posessing the most action points for action Q.
+
+  data_summary <- district_averages_scale_1 %>%
+    group_by(Proposed.Management.Action, District) %>%
+    summarise(Total_Count = sum(Count, na.rm = TRUE))
+
+data_summary <- data_summary %>%
+    arrange(desc(Proposed.Management.Action)) %>%
+    mutate(prop = Total_Count / sum(Total_Count) * 100) %>%
+    mutate(ypos = cumsum(prop) - 0.5 * prop)
+
+ggplot(data_summary, aes(x = "", y = prop, col = Proposed.Management.Action)) +
+    geom_bar(stat = "identity", width = 1) +
+    coord_polar("y", start = 0) +
+    scale_fill_identity() +
+    theme_void() +
+    labs(
+      title = "Pie Chart by Proposed Management Action"
+    ) +
+    theme(legend.position = "bottom") +
+    geom_text(aes(y = ypos, label = paste0(Proposed.Management.Action, ": ", round(prop, 1), "%")), color = "white")
+
+```
+  
+
+
+1. Focus only on the funding shortfall variable, 
+  - create a table which shows the average shortfalls of actions @ very confidence & @ each scale (1:3)
+  
+```{r import data}
+getwd()
+data <- read.csv("./data/Fishery_Management_Plan_Actions_Working_Sheet.csv", header = T)
+# Change data type of relevant variables
+str(data)
+data$Proposed.Management.Action <- as.factor(data$Proposed.Management.Action)
+data$Scale <- as.factor(data$Scale)
+data$Proposed.Management.Action <- as.factor(data$Proposed.Management.Action)
+data$Maintainance.Required <- as.factor(data$Maintainance.Required)
+data$Funding.Available <- as.factor(data$Funding.Available)
+data$Funding_Status_TRUE <- as.factor(data$Funding_Status_TRUE)
+data$Maintainance.Required <- as.factor(data$Maintainance.Required)
+data$Costing.Certainty <- as.factor(data$Costing.Certainty)
+
+
+# Subset to very confident funding shortfall data
+data_subset <- data[data$Costing.Certainty == "Very Confident",]
+# Save this subsetted dataframe to a new file for use.
+write.csv(data_subset, file = "./results/SFCC_VC_Subset.csv")
+
+# Boxplot of funding shortfalls by scales
+plot(data_subset$Proposed.Management.Action, data_subset$Funding.Shortfall)
+
+# ggplot
+ggplot(data_subset, aes(x = Proposed.Management.Action, y = Funding.Shortfall, fill = Proposed.Management.Action)) +
+         geom_boxplot() + 
+         facet_wrap(~Scale, scales = "free") + 
+  labs(title = "Average Cost by Proposed Management Action for all Scales",
+       x = "Proposed Management Action",
+       y = "Average Funding Shortfall Cost") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_discrete(name = "Action")
+
+
+# subset data to relevant scales for investigation: 1-3
+data_scale_1 <- data_subset[data_subset$Scale == "1",]
+str(data_scale_1)
+data_scale_2 <- data_subset[data_subset$Scale == "2",]
+str(data_scale_2)
+data_scale_3 <- data_subset[data_subset$Scale == "3",]
+str(data_scale_3)
+data_scale_4 <- data_subset[data_subset$Scale == "4",]
+str(data_scale_4)
+data_scale_5 <- data_subset[data_subset$Scale == "5",]
+str(data_scale_5)
+
+# Create a boxplot which focuses only on scale 1:
+
+ggplot(data = data_subset[data_subset$Scale == "1",], aes(x = Proposed.Management.Action, y = Funding.Shortfall, fill = Proposed.Management.Action)) +
+         geom_boxplot() + 
+         facet_wrap(~Scale, scales = "free") + 
+  labs(title = "Average Cost by Proposed Management Action for all Scales",
+       x = "Proposed Management Action",
+       y = "Average Funding Shortfall Cost") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_discrete(name = "Action")
+
+
+# New subset:
+
+data_VC_scale_1 <- data_subset[data_subset$Scale == "1",]
+
+
+hist(data_VC_scale_1$Funding.Shortfall, breaks = 20)
+```
+
+```{r}
+ggplot(district_averages_scale_1, 
+       aes(x = Proposed.Management.Action,
+           y = Average_Funding_Shortfall,
+           fill = District,
+           col = District)) + 
+  geom_boxplot() + 
+    labs(title = "Average FUnding Shortfall per Action",
+       x = "Proposed Management Action",
+       y = "Funding Shortfall (£)") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 0)) +
+  scale_x_discrete(drop = FALSE)
+```
+
