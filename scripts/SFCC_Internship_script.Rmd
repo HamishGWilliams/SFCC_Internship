@@ -770,3 +770,32 @@ ggplot(district_averages_scale_1,
   scale_x_discrete(drop = FALSE)
 ```
 
+# Final datafile
+
+```{r}
+## Define the expanded function with checks for column existence
+calculate_average_expanded <- function(data) {
+  # Calculate the average values for Funding.Shortfall and Filtered_Costings_Data for each District and Proposed.Management_Action
+  averages <- data %>%
+    group_by(Proposed.Management.Action, District, Scale, Costing.Certainty) %>%
+    summarize(
+      Average_Funding_Shortfall = mean(Funding.Shortfall, na.rm = TRUE), # Average Funding Shortall
+      Average_Filtered_Costings_Data = mean(Filtered_Costings_Data, na.rm = TRUE), # Average the costings data I made
+      Count = n() # calculate the number of values used to generate the average
+    )
+  return(averages)
+}
+
+calculated_averages <- calculate_average_expanded(data)
+calculated_averages$District <- as.factor(calculated_averages$District)
+calculated_averages$Count <- as.numeric(calculated_averages$Count)
+
+getwd()
+write.csv(calculated_averages, "./data/calculated_averages.csv")
+write.csv(calculated_averages, "./SFCC_Internship_Shiny_App_3/data/calculated_averages.csv")
+
+# renaming values to true values:
+calculated_averages$Proposed.Management.Action[] <- lapply(calculated_averages$Proposed.Management.Action, function(x) ifelse(x == "A", "Angling Development", x))
+
+```
+

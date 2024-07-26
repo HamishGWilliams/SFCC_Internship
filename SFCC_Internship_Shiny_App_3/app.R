@@ -14,6 +14,7 @@ library(ggplot2)
 library(here)
 library(rsconnect)
 library(openxlsx)
+library(scales)
 
 # Connect to server ----
 rsconnect::setAccountInfo(name='hamish-williams', token='6C0A215BD2F0A4C1F14D69F38D667B5D', secret='ZZYWiT9nyNA8udsuxvg9TiYrZ0kZIODHrp4KBYug')
@@ -551,6 +552,7 @@ server <- function(input, output, session) {
       geom_boxplot(alpha = 0.3) +
       theme_bw() +
       theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+      scale_y_continuous(labels = label_number(big.mark = ",", prefix = "£")) +
       labs(
         title = "Boxplot by Proposed Management Action", 
         x = "Proposed.Management.Action", 
@@ -566,6 +568,7 @@ server <- function(input, output, session) {
       geom_boxplot(alpha = 0.3) +
       theme_bw() +
       theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+      scale_y_continuous(labels = label_number(big.mark = ",", prefix = "£")) +
       labs(
         title = "Boxplot by District", 
         x = "District", 
@@ -618,6 +621,7 @@ server <- function(input, output, session) {
       geom_boxplot(alpha = 0.3) +
       theme_bw() +
       theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+      scale_y_continuous(labels = label_number(big.mark = ",", prefix = "£")) +
       labs(
         title = "Boxplot by Proposed Management Action", 
         x = "Proposed.Management.Action", 
