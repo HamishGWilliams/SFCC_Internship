@@ -18,6 +18,7 @@ library(scales)
 
 # Connect to server ----
 rsconnect::setAccountInfo(name='hamish-williams', token='6C0A215BD2F0A4C1F14D69F38D667B5D', secret='ZZYWiT9nyNA8udsuxvg9TiYrZ0kZIODHrp4KBYug')
+  ## !! CHANGE THIS TO PUBLISH TO YOUR OWN SHINY APP ACCOUNT !! ##
 
 # Load Data ----
     # Function to safely read and convert data ----
@@ -132,8 +133,9 @@ ui <- fluidPage(
   # Top banner with logos ----
   fluidRow(
     column(12, div(class = "centered",
-                   img(src = 'https://scotland.shinyapps.io/sg-pressures-wild-atlantic-salmon-scotland/_w_c9337153/SFCC%20Logo.jpg', height = '75px'),
-                   img(src = 'https://scotland.shinyapps.io/sg-pressures-wild-atlantic-salmon-scotland/_w_c9337153/FMS%20logo%20white%20new%20(hi-res).jpg', height = '75px')
+                   #img(src = 'https://scotland.shinyapps.io/sg-pressures-wild-atlantic-salmon-scotland/_w_c9337153/SFCC%20Logo.jpg', height = '75px'),
+                   #img(src = 'https://scotland.shinyapps.io/sg-pressures-wild-atlantic-salmon-scotland/_w_c9337153/FMS%20logo%20white%20new%20(hi-res).jpg', height = '75px'),
+                   tags$img(src = 'data/FMSSFCC Banner Logo.jpg', height = '125px')
     ))
   ),
   
@@ -650,6 +652,10 @@ server <- function(input, output, session) {
     updateSelectInput(session, "District", selected = unique(data$District))
   })
   
+  
+  
+  # Serve the image from the 'data' directory
+  shiny::addResourcePath("data", "data")
   
 # 
 # End of server code
